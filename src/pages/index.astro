@@ -4,20 +4,6 @@ import PapelPicado from "../components/PapelPicado.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import TourMarquee from "../components/TourMarquee.astro";
 import { tourStops } from "../data/events";
-
-const homeStops = tourStops.map((stop) => {
-  const copy = {
-    minneapolis: { venueEs: "Shin Karaoke" },
-    mcallen: { venueEs: "17th Street" },
-    monterrey: { venueEs: "RSVP para Quinta" },
-    discord: { venueEs: "Noche de Juegos" }
-  }[stop.slug] ?? { venueEs: stop.venue };
-
-  return {
-    ...stop,
-    venueEs: copy.venueEs
-  };
-});
 ---
 
 <BaseLayout>
@@ -44,7 +30,7 @@ const homeStops = tourStops.map((stop) => {
         </div>
       </div>
       <div class="hero-bill" aria-label="Tour dates">
-        {homeStops.map((stop) => (
+        {tourStops.map((stop) => (
           <a class="bill-row" href={`/dates/${stop.slug}`}>
             <span>{stop.dateLabel}</span>
             <span>{stop.city}</span>
@@ -79,7 +65,7 @@ const homeStops = tourStops.map((stop) => {
         <span data-lang="en">Four nights, one party</span>
       </h2>
       <div class="date-grid">
-        {homeStops.map((stop) => (
+        {tourStops.map((stop) => (
           <article class="date-card">
             <a class="date-card-main" href={`/dates/${stop.slug}`}>
               <time datetime={stop.date}>{stop.dateLabel}</time>

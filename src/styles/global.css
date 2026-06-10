@@ -565,6 +565,11 @@ h1 {
 .date-card p {
   margin-bottom: 0;
   font-size: 1rem;
+  line-height: 1.02;
+}
+
+.date-card p [data-lang="es"] {
+  font-size: 1.08em;
 }
 
 .date-card-actions {

@@ -24,10 +24,24 @@ if (!stop) {
   <main>
     <section class="rsvp-shell poster-field" aria-labelledby="rsvp-title">
       <img class="poster-stamp stamp-rsvp" src="/assets/gem-flag.png" alt="" aria-hidden="true" />
-      <a class="back-link" href={`/dates/${stop.slug}`}>Back to {stop.city}</a>
-      <p class="kicker">{stop.dateLabel} / {stop.venue}</p>
+      <a class="back-link" href={`/dates/${stop.slug}`}>
+        <span data-lang="es">Volver a {stop.city}</span>
+        <span data-lang="en">Back to {stop.city}</span>
+      </a>
+      <p class="kicker">
+        {stop.dateLabel} /
+        <span data-lang="es">{stop.venueEs}</span>
+        <span data-lang="en">{stop.venue}</span>
+      </p>
       <h1 class="fit-title rsvp-title" id="rsvp-title">RSVP {stop.city}</h1>
-      {stop.rsvpDeadline && <p class="rsvp-deadline">{stop.rsvpDeadline}</p>}
+      {
+        stop.rsvpDeadline && (
+          <p class="rsvp-deadline">
+            <span data-lang="es">{stop.rsvpDeadlineEs}</span>
+            <span data-lang="en">{stop.rsvpDeadline}</span>
+          </p>
+        )
+      }
       <PapelPicado class="form-picado" />
 
       <form
@@ -43,15 +57,18 @@ if (!stop) {
           <input name="website" tabindex="-1" autocomplete="off" />
         </label>
         <label>
-          Name
+          <span data-lang="es">Nombre</span>
+          <span data-lang="en">Name</span>
           <input name="name" autocomplete="name" required />
         </label>
         <label>
-          Phone
+          <span data-lang="es">Telefono</span>
+          <span data-lang="en">Phone</span>
           <input name="phone" type="tel" autocomplete="tel" required />
         </label>
         <label>
-          Guests
+          <span data-lang="es">Invitados</span>
+          <span data-lang="en">Guests</span>
           <select name="guests" required>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -60,10 +77,14 @@ if (!stop) {
           </select>
         </label>
         <fieldset>
-          <legend>Can you make it?</legend>
+          <legend>
+            <span data-lang="es">Puedes venir?</span>
+            <span data-lang="en">Can you make it?</span>
+          </legend>
           <label class="choice">
             <input type="radio" name="attending" value="yes" required />
-            Yes
+            <span data-lang="es">Si</span>
+            <span data-lang="en">Yes</span>
           </label>
           <label class="choice">
             <input type="radio" name="attending" value="no" />
@@ -73,10 +94,14 @@ if (!stop) {
         {
           stop.slug === "monterrey" && (
             <fieldset>
-              <legend>Would you travel to Montemorelos / Santiago and stay overnight?</legend>
+              <legend>
+                <span data-lang="es">Viajarias a Montemorelos / Santiago y te quedarias la noche?</span>
+                <span data-lang="en">Would you travel to Montemorelos / Santiago and stay overnight?</span>
+              </legend>
               <label class="choice">
                 <input type="radio" name="overnight_travel" value="yes" required />
-                Yes
+                <span data-lang="es">Si</span>
+                <span data-lang="en">Yes</span>
               </label>
               <label class="choice">
                 <input type="radio" name="overnight_travel" value="no" />
@@ -88,12 +113,16 @@ if (!stop) {
         {
           stop.showNoteField !== false && (
             <label>
-              Song request / note
+              <span data-lang="es">Cancion / nota</span>
+              <span data-lang="en">Song request / note</span>
               <textarea name="note" rows="5" required></textarea>
             </label>
           )
         }
-        <button type="submit">Send RSVP</button>
+        <button type="submit">
+          <span data-lang="es">Enviar RSVP</span>
+          <span data-lang="en">Send RSVP</span>
+        </button>
       </form>
     </section>
   </main>

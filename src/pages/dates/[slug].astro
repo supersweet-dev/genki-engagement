@@ -16,6 +16,8 @@ const stop = getTourStop(Astro.params.slug ?? "");
 if (!stop) {
   return Astro.redirect("/");
 }
+
+const detailItems = stop.detailsEs;
 ---
 
 <BaseLayout title={`${stop.city} | Hideki & Jimmi Engagement Tour '26`}>
@@ -23,35 +25,62 @@ if (!stop) {
   <main>
     <section class="detail-hero poster-field" aria-labelledby="stop-title">
       <img class="poster-stamp stamp-detail" src="/assets/lamp.png" alt="" aria-hidden="true" />
-      <a class="back-link" href="/#dates">Back to dates</a>
+      <a class="back-link" href="/#dates">
+        <span data-lang="es">Volver a fechas</span>
+        <span data-lang="en">Back to dates</span>
+      </a>
       <h1 class="fit-title" id="stop-title">{stop.city}</h1>
-      <p class="venue-line">{stop.venue}</p>
+      <p class="venue-line">
+        <span data-lang="es">{stop.venueEs}</span>
+        <span data-lang="en">{stop.venue}</span>
+      </p>
       <dl class="stop-facts">
         <div>
-          <dt>Date</dt>
+          <dt>
+            <span data-lang="es">Fecha</span>
+            <span data-lang="en">Date</span>
+          </dt>
           <dd><time datetime={stop.date}>{stop.dateLabel}, 2026</time></dd>
         </div>
         <div>
-          <dt>Place</dt>
+          <dt>
+            <span data-lang="es">Lugar</span>
+            <span data-lang="en">Place</span>
+          </dt>
           <dd>
             {
               stop.addressHref ? (
-                <a href={stop.addressHref}>{stop.address}</a>
+                <a href={stop.addressHref}>
+                  <span data-lang="es">{stop.addressEs}</span>
+                  <span data-lang="en">{stop.address}</span>
+                </a>
               ) : (
-                stop.address
+                <>
+                  <span data-lang="es">{stop.addressEs}</span>
+                  <span data-lang="en">{stop.address}</span>
+                </>
               )
             }
           </dd>
         </div>
         <div>
-          <dt>Time</dt>
-          <dd>{stop.time}</dd>
+          <dt>
+            <span data-lang="es">Hora</span>
+            <span data-lang="en">Time</span>
+          </dt>
+          <dd>
+            <span data-lang="es">{stop.timeEs}</span>
+            <span data-lang="en">{stop.time}</span>
+          </dd>
         </div>
         {
           stop.rsvpDeadline && (
             <div class="deadline-fact">
               <dt>RSVP</dt>
-              <dd>{stop.rsvpDeadline}</dd>
+              <dd>
+                <span data-lang="es">{stop.rsvpDeadlineEs}</span>
+                <span data-lang="en">{stop.rsvpDeadline}</span>
+              </dd>
             </div>
           )
         }
@@ -62,12 +91,14 @@ if (!stop) {
             class={`button-primary detail-rsvp ${stop.slug === "monterrey" ? "featured-rsvp" : ""}`}
             href={`/rsvp/${stop.slug}`}
           >
-            RSVP for {stop.city}
+            <span data-lang="es">RSVP para {stop.city}</span>
+            <span data-lang="en">RSVP for {stop.city}</span>
           </a>
         ) : (
           stop.addressHref && (
             <a class="button-primary detail-rsvp" href={stop.addressHref}>
-              Join Server
+              <span data-lang="es">Unirse al servidor</span>
+              <span data-lang="en">Join Server</span>
             </a>
           )
         )
@@ -86,14 +117,23 @@ if (!stop) {
         </div>
       </div>
       {
-        stop.details.map((item) => (
+        detailItems.map((item) => (
           <p>
-            {typeof item === "string" ? (
-              item
+            {"href" in item ? (
+              <>
+                <span data-lang="es">
+                  {item.esText}
+                  <a href={item.href}>{item.esLabel}</a>
+                </span>
+                <span data-lang="en">
+                  {item.enText}
+                  <a href={item.href}>{item.enLabel}</a>
+                </span>
+              </>
             ) : (
               <>
-                {item.text}
-                <a href={item.href}>{item.label}</a>
+                <span data-lang="es">{item.es}</span>
+                <span data-lang="en">{item.en}</span>
               </>
             )}
           </p>

@@ -23,11 +23,27 @@ if (!stop) {
   <main>
     <section class="detail-hero poster-field" aria-labelledby="thanks-title">
       <img class="poster-stamp stamp-detail" src="/assets/tree-flag.png" alt="" aria-hidden="true" />
-      <a class="back-link" href={`/dates/${stop.slug}`}>Back to {stop.city}</a>
-      <p class="kicker">{stop.dateLabel} / {stop.venue}</p>
-      <h1 class="fit-title rsvp-title" id="thanks-title">RSVP RECEIVED</h1>
-      <p class="venue-line">Thank you. See you on tour.</p>
-      <a class="button-primary" href="/">Back to dates</a>
+      <a class="back-link" href={`/dates/${stop.slug}`}>
+        <span data-lang="es">Volver a {stop.city}</span>
+        <span data-lang="en">Back to {stop.city}</span>
+      </a>
+      <p class="kicker">
+        {stop.dateLabel} /
+        <span data-lang="es">{stop.venueEs}</span>
+        <span data-lang="en">{stop.venue}</span>
+      </p>
+      <h1 class="fit-title rsvp-title" id="thanks-title">
+        <span data-lang="es">RSVP RECIBIDO</span>
+        <span data-lang="en">RSVP RECEIVED</span>
+      </h1>
+      <p class="venue-line">
+        <span data-lang="es">Gracias. Nos vemos en el tour.</span>
+        <span data-lang="en">Thank you. See you on tour.</span>
+      </p>
+      <a class="button-primary" href="/">
+        <span data-lang="es">Volver a fechas</span>
+        <span data-lang="en">Back to dates</span>
+      </a>
     </section>
   </main>
 </BaseLayout>
