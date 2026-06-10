@@ -62,11 +62,11 @@ export const tourStops: TourStop[] = [
     dateLabel: "Aug29",
     city: "DISCORD",
     venue: "Game Night",
-    address: "TBD Discord Server",
+    address: "discord.gg/QSc7EDSyN2",
     time: "Details soon",
     details: [
       "Game night from wherever your best internet lives.",
-      "Server link is TBD, snacks are BYO, chaos is provided.",
+      "Server link: https://discord.gg/QSc7EDSyN2",
       "Bring a headset, a suspiciously strong opinion, and one game you can teach in five minutes."
     ]
   }
