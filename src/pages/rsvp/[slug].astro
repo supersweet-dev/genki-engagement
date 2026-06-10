@@ -23,7 +23,7 @@ if (!stop) {
       <img class="poster-stamp stamp-rsvp" src="/assets/gem-flag.png" alt="" aria-hidden="true" />
       <a class="back-link" href={`/dates/${stop.slug}`}>Back to {stop.city}</a>
       <p class="kicker">{stop.dateLabel} / {stop.venue}</p>
-      <h1 id="rsvp-title">RSVP {stop.city}</h1>
+      <h1 class="fit-title rsvp-title" id="rsvp-title">RSVP {stop.city}</h1>
       {stop.rsvpDeadline && <p class="rsvp-deadline">{stop.rsvpDeadline}</p>}
 
       <form
