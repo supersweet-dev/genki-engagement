@@ -5,9 +5,11 @@ import SiteHeader from "../../components/SiteHeader.astro";
 import { getTourStop, tourStops } from "../../data/events";
 
 export function getStaticPaths() {
-  return tourStops.map((stop) => ({
-    params: { slug: stop.slug }
-  }));
+  return tourStops
+    .filter((stop) => stop.acceptsRsvp !== false)
+    .map((stop) => ({
+      params: { slug: stop.slug }
+    }));
 }
 
 const stop = getTourStop(Astro.params.slug ?? "");
@@ -83,10 +85,14 @@ if (!stop) {
             </fieldset>
           )
         }
-        <label>
-          Song request / note
-          <textarea name="note" rows="5" required></textarea>
-        </label>
+        {
+          stop.showNoteField !== false && (
+            <label>
+              Song request / note
+              <textarea name="note" rows="5" required></textarea>
+            </label>
+          )
+        }
         <button type="submit">Send RSVP</button>
       </form>
     </section>

@@ -63,7 +63,7 @@ import { tourStops } from "../data/events";
             </a>
             <div class="date-card-actions">
               <a href={`/dates/${stop.slug}`}>Details</a>
-              <a href={`/rsvp/${stop.slug}`}>RSVP</a>
+              {stop.acceptsRsvp !== false && <a href={`/rsvp/${stop.slug}`}>RSVP</a>}
             </div>
           </article>
         ))}

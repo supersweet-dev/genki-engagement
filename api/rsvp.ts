@@ -14,7 +14,8 @@ type VercelResponse = {
   redirect: (statusOrUrl: number | string, url?: string) => void;
 };
 
-const eventSlugs = new Set(["minneapolis", "mcallen", "monterrey", "discord"]);
+const eventSlugs = new Set(["minneapolis", "mcallen", "monterrey"]);
+const eventsWithOptionalNotes = new Set(["minneapolis", "mcallen"]);
 
 function getField(body: unknown, key: string) {
   if (typeof body === "string") {
@@ -111,7 +112,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  if (!note) {
+  if (!eventsWithOptionalNotes.has(eventSlug) && !note) {
     sendError(res, "Please add a song request or note.");
     return;
   }

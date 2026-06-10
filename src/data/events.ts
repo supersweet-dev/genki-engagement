@@ -16,6 +16,8 @@ export type TourStop = {
   addressHref?: string;
   time: string;
   rsvpDeadline?: string;
+  acceptsRsvp?: boolean;
+  showNoteField?: boolean;
   details: DetailItem[];
 };
 
@@ -28,6 +30,7 @@ export const tourStops: TourStop[] = [
     venue: "Shin Karaoke",
     address: "Minneapolis, MN",
     time: "Details soon",
+    showNoteField: false,
     details: [
       "Karaoke stop on the engagement tour.",
       "Bring your best chorus and your loudest congratulations.",
@@ -42,6 +45,7 @@ export const tourStops: TourStop[] = [
     venue: "17th Street",
     address: "McAllen, TX",
     time: "Details soon",
+    showNoteField: false,
     details: [
       "A borderlands night stop.",
       "Let's (try) to party like when we were in college.",
@@ -74,6 +78,7 @@ export const tourStops: TourStop[] = [
     address: "wedding server",
     addressHref: "https://discord.gg/QSc7EDSyN2",
     time: "Details soon",
+    acceptsRsvp: false,
     details: [
       "Game night from wherever your best internet lives.",
       {
