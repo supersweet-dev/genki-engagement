@@ -566,7 +566,7 @@ h1 {
 
 .date-card p {
   margin-bottom: 0;
-  font-size: 1rem;
+  font-size: clamp(1.08rem, 1.35vw, 1.28rem);
   line-height: 1.02;
 }
 
