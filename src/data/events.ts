@@ -44,7 +44,7 @@ export const tourStops: TourStop[] = [
     time: "Details soon",
     details: [
       "A borderlands night stop.",
-      "Come dressed like you found the flyer on a telephone pole.",
+      "Let's (try) to party like when we were in college.",
       "Final timing and room details will land here."
     ]
   },
@@ -62,7 +62,7 @@ export const tourStops: TourStop[] = [
       "Place is TBD in Nuevo Leon, depending on who is in for the overnight adventure.",
       "Pool forecast: bring something you can splash in.",
       "Music and singing forecast: bring a song you are emotionally prepared to defend.",
-      "BBQ forecast: smoke, snacks, cold drinks, and a very loud little love party."
+      "BBQ forecast: smoke, snacks, and cold drinks."
     ]
   },
   {
