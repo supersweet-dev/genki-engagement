@@ -58,13 +58,19 @@ if (!stop) {
         }
       </dl>
       {
-        stop.acceptsRsvp !== false && (
+        stop.acceptsRsvp !== false ? (
           <a
             class={`button-primary detail-rsvp ${stop.slug === "monterrey" ? "featured-rsvp" : ""}`}
             href={`/rsvp/${stop.slug}`}
           >
             RSVP for {stop.city}
           </a>
+        ) : (
+          stop.addressHref && (
+            <a class="button-primary detail-rsvp" href={stop.addressHref}>
+              Join Server
+            </a>
+          )
         )
       }
     </section>
