@@ -563,16 +563,19 @@ h1 {
 
 .details-copy {
   max-width: 68rem;
-  padding-right: clamp(8rem, 24vw, 18rem);
+  padding-right: clamp(10rem, 28vw, 22rem);
 }
 
-.details-sheepcat {
+.details-photo {
   position: absolute;
-  top: clamp(8rem, 18vw, 14rem);
+  top: clamp(6rem, 12vw, 9rem);
   right: clamp(1rem, 5vw, 4rem);
-  width: clamp(5.5rem, 17vw, 12rem);
-  opacity: 0.92;
-  transform: rotate(8deg);
+  width: clamp(8rem, 23vw, 17rem);
+  aspect-ratio: 1;
+  object-fit: contain;
+  filter: grayscale(1) contrast(2);
+  mix-blend-mode: multiply;
+  transform: rotate(4deg);
 }
 
 .flag-row {
@@ -761,7 +764,7 @@ h1 {
   .stamp-sheepcat,
   .stamp-detail,
   .stamp-rsvp,
-  .details-sheepcat {
+  .details-photo {
     width: 9rem;
     opacity: 0.35;
   }
