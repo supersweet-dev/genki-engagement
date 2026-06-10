@@ -32,7 +32,7 @@ body {
 }
 
 body[data-theme="pink"] {
-  --paper: #ec3591;
+  --paper: #f64ba2;
 }
 
 body[data-theme="cyan"] {
@@ -160,11 +160,15 @@ textarea {
 }
 
 .color-chip-pink::before {
-  background: #ec3591;
+  background: #f64ba2;
 }
 
 .color-chip-cyan::before {
   background: #35e0ec;
+}
+
+.color-chip-green::before {
+  background: #94f345;
 }
 
 .poster-field {
