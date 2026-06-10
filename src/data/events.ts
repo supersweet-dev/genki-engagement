@@ -68,9 +68,7 @@ export const tourStops: TourStop[] = [
     details: [
       "RSVP by July 3 so we can lock the guest count and choose the right quinta.",
       "Place is TBD in Nuevo Leon, depending on who is in for the overnight adventure.",
-      "Pool forecast: bring something you can splash in.",
-      "Music and singing forecast: bring a song you are emotionally prepared to defend.",
-      "BBQ forecast: smoke, snacks, and cold drinks."
+      "Forecast: pool, BBQ, sun, and singing."
     ]
   },
   {
