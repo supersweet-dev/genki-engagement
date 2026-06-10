@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PapelPicado from "../../components/PapelPicado.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import TourMarquee from "../../components/TourMarquee.astro";
 import { getTourStop, tourStops } from "../../data/events";
@@ -56,13 +57,15 @@ if (!stop) {
       </a>
     </section>
 
+    <PapelPicado />
+
     <TourMarquee />
 
     <section class="details-copy" aria-label="Stop details">
       <div class="flag-row" aria-hidden="true">
         <img src="/assets/tree-flag.png" alt="" />
         <img src="/assets/gem-flag.png" alt="" />
-        <img src="/assets/invite-v2-vfosf.png" alt="" />
+        <img src="/assets/logo.png" alt="" />
       </div>
       {stop.details.map((item) => <p>{item}</p>)}
     </section>

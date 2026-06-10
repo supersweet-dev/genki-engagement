@@ -1,0 +1,19 @@
+---
+type Props = {
+  class?: string;
+};
+
+const className = Astro.props.class;
+const flags = [
+  "/assets/tree-flag.png",
+  "/assets/gem-flag.png",
+  "/assets/tree-flag.png",
+  "/assets/gem-flag.png",
+  "/assets/tree-flag.png",
+  "/assets/gem-flag.png"
+];
+---
+
+<div class:list={["papel-picado", className]} aria-hidden="true">
+  {flags.map((flag) => <img src={flag} alt="" />)}
+</div>

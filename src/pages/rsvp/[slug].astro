@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PapelPicado from "../../components/PapelPicado.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import { getTourStop, tourStops } from "../../data/events";
 
@@ -25,6 +26,7 @@ if (!stop) {
       <p class="kicker">{stop.dateLabel} / {stop.venue}</p>
       <h1 class="fit-title rsvp-title" id="rsvp-title">RSVP {stop.city}</h1>
       {stop.rsvpDeadline && <p class="rsvp-deadline">{stop.rsvpDeadline}</p>}
+      <PapelPicado class="form-picado" />
 
       <form
         class="rsvp-form"

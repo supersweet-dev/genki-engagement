@@ -74,6 +74,22 @@ textarea {
   letter-spacing: 0;
 }
 
+.brand-names,
+.title-names {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.22em;
+  white-space: nowrap;
+}
+
+.brand-names img {
+  width: 1.55em;
+  height: 1em;
+  object-fit: contain;
+  filter: grayscale(1) contrast(2);
+  mix-blend-mode: multiply;
+}
+
 .header-nav {
   border-left: var(--hairline);
 }
@@ -199,6 +215,18 @@ h1 {
   white-space: nowrap;
 }
 
+.tour-title .title-names {
+  display: inline-flex;
+}
+
+.title-names img {
+  width: 1.75em;
+  height: 0.86em;
+  object-fit: contain;
+  filter: grayscale(1) contrast(2);
+  mix-blend-mode: multiply;
+}
+
 .fit-title {
   max-width: none;
   font-size: clamp(3rem, 10vw, 10rem);
@@ -216,9 +244,9 @@ h1 {
 
 .bill-row {
   display: grid;
-  grid-template-columns: 4.5rem minmax(7rem, 1fr);
-  gap: 0.6rem 1rem;
-  padding: 1rem;
+  grid-template-columns: 3.8rem minmax(0, 1fr);
+  gap: 0.45rem 0.7rem;
+  padding: 0.9rem;
   border-bottom: var(--hairline);
 }
 
@@ -228,9 +256,9 @@ h1 {
 
 .bill-row span:nth-child(2) {
   min-width: 0;
-  overflow-wrap: anywhere;
-  white-space: normal;
-  font-size: clamp(1.35rem, 3vw, 2.4rem);
+  overflow-wrap: normal;
+  white-space: nowrap;
+  font-size: clamp(1.3rem, 2.15vw, 2rem);
   line-height: 0.9;
 }
 
@@ -252,6 +280,43 @@ h1 {
   user-select: none;
   filter: grayscale(1) contrast(2);
   mix-blend-mode: multiply;
+}
+
+.papel-picado {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(2.75rem, 1fr));
+  gap: clamp(0.35rem, 1.4vw, 1rem);
+  align-items: end;
+  padding: 0.65rem clamp(1rem, 5vw, 4rem);
+  border-bottom: var(--hairline);
+  background: var(--paper);
+}
+
+.papel-picado img {
+  display: block;
+  width: 100%;
+  max-height: clamp(2.2rem, 7vw, 5.2rem);
+  object-fit: contain;
+  filter: grayscale(1) contrast(2);
+  mix-blend-mode: multiply;
+}
+
+.papel-picado img:nth-child(even) {
+  transform: translateY(0.28rem) rotate(3deg);
+}
+
+.papel-picado img:nth-child(odd) {
+  transform: rotate(-3deg);
+}
+
+.section-picado,
+.form-picado {
+  margin-bottom: clamp(1rem, 4vw, 2rem);
+  border: var(--hairline);
+}
+
+.form-picado {
+  max-width: 46rem;
 }
 
 .button-primary,
@@ -649,7 +714,7 @@ h1 {
   }
 
   .bill-row {
-    grid-template-columns: minmax(3.8rem, auto) minmax(0, 1fr);
+    grid-template-columns: minmax(3.5rem, auto) minmax(0, 1fr);
     padding: 0.85rem;
   }
 
