@@ -80,9 +80,11 @@ if (!stop) {
     <TourMarquee />
 
     <section class="details-copy" aria-label="Stop details">
-      <img class="details-photo" src={stop.detailPhoto} alt="Hideki and Jimmi" />
-      <div class="details-mascot" aria-hidden="true">
-        <img src="/assets/sheepcat.png" alt="" />
+      <div class="details-photo-frame">
+        <img class="details-photo" src={stop.detailPhoto} alt="Hideki and Jimmi" />
+        <div class="details-mascot" aria-hidden="true">
+          <img src="/assets/sheepcat.png" alt="" />
+        </div>
       </div>
       {
         stop.details.map((item) => (
