@@ -538,7 +538,7 @@ h1 {
 
 .date-card {
   display: grid;
-  min-height: 24rem;
+  min-height: 27rem;
   grid-template-rows: 1fr auto;
   border-right: var(--hairline);
   border-bottom: var(--hairline);
@@ -548,26 +548,31 @@ h1 {
 .date-card-main {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1.1rem;
+  gap: 1.2rem;
+  padding: clamp(1.2rem, 2vw, 1.6rem);
 }
 
 .date-card time {
-  font-size: 1rem;
+  font-size: clamp(1.15rem, 1.7vw, 1.55rem);
 }
 
 .date-card h3 {
   margin: auto 0 0;
   overflow-wrap: anywhere;
   white-space: normal;
-  font-size: clamp(3.2rem, 6.4vw, 6.2rem);
+  font-size: clamp(3.6rem, 7vw, 6.8rem);
   line-height: 0.72;
 }
 
 .date-card p {
   margin-bottom: 0;
-  font-size: clamp(1.08rem, 1.35vw, 1.28rem);
+  font-size: clamp(1.2rem, 1.65vw, 1.55rem);
   line-height: 1.02;
+}
+
+.date-card-actions a {
+  min-height: 3.7rem;
+  font-size: clamp(1rem, 1.35vw, 1.28rem);
 }
 
 .date-card-actions {
