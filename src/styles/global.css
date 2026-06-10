@@ -202,7 +202,7 @@ textarea {
 .hero {
   display: grid;
   min-height: calc(100vh - 52px);
-  grid-template-columns: minmax(24rem, 1fr) minmax(22rem, 0.9fr);
+  grid-template-columns: minmax(24rem, 1fr) minmax(19rem, 0.78fr);
   grid-template-rows: auto auto;
   align-content: center;
   gap: clamp(1.25rem, 3.5vw, 3rem);
@@ -372,11 +372,11 @@ h1 {
 
 .bill-row {
   display: grid;
-  grid-template-columns: 4.45rem minmax(0, 1fr);
-  gap: 0.55rem 0.85rem;
-  min-height: 8.1rem;
+  grid-template-columns: 3.8rem minmax(0, 1fr);
+  gap: 0.45rem 0.7rem;
+  min-height: 7.1rem;
   align-content: center;
-  padding: 1.05rem;
+  padding: 0.9rem;
   border-bottom: var(--hairline);
 }
 
@@ -388,7 +388,7 @@ h1 {
   min-width: 0;
   overflow-wrap: normal;
   white-space: nowrap;
-  font-size: clamp(1.65rem, 2.55vw, 2.35rem);
+  font-size: clamp(1.45rem, 2.3vw, 2.12rem);
   line-height: 0.9;
 }
 
@@ -397,7 +397,7 @@ h1 {
   display: block;
   min-width: 0;
   min-height: 2.1em;
-  font-size: clamp(1rem, 1.48vw, 1.24rem);
+  font-size: clamp(0.92rem, 1.35vw, 1.12rem);
   line-height: 1.05;
   overflow-wrap: anywhere;
 }
