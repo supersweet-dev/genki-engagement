@@ -4,6 +4,20 @@ import PapelPicado from "../components/PapelPicado.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import TourMarquee from "../components/TourMarquee.astro";
 import { tourStops } from "../data/events";
+
+const homeStops = tourStops.map((stop) => {
+  const copy = {
+    minneapolis: { venueEs: "Shin Karaoke" },
+    mcallen: { venueEs: "17th Street" },
+    monterrey: { venueEs: "RSVP para Quinta" },
+    discord: { venueEs: "Noche de Juegos" }
+  }[stop.slug] ?? { venueEs: stop.venue };
+
+  return {
+    ...stop,
+    venueEs: copy.venueEs
+  };
+});
 ---
 
 <BaseLayout>
@@ -19,7 +33,10 @@ import { tourStops } from "../data/events";
           </span>
           <span class="title-tour">
             <span class="title-words">
-              <span>engagement</span>
+              <span>
+                <span data-lang="es">compromiso</span>
+                <span data-lang="en">engagement</span>
+              </span>
               <span>tour</span>
             </span>
             <span class="title-year">'26</span>
@@ -30,16 +47,22 @@ import { tourStops } from "../data/events";
         </div>
       </div>
       <div class="hero-bill" aria-label="Tour dates">
-        {tourStops.map((stop) => (
+        {homeStops.map((stop) => (
           <a class="bill-row" href={`/dates/${stop.slug}`}>
             <span>{stop.dateLabel}</span>
             <span>{stop.city}</span>
-            <span>{stop.venue}</span>
+            <span>
+              <span data-lang="es">{stop.venueEs}</span>
+              <span data-lang="en">{stop.venue}</span>
+            </span>
           </a>
         ))}
       </div>
       <div class="hero-actions">
-        <a class="button-primary" href="#dates">See Dates</a>
+        <a class="button-primary" href="#dates">
+          <span data-lang="es">Ver Fechas</span>
+          <span data-lang="en">See Dates</span>
+        </a>
         <a class="button-secondary" href="/rsvp/monterrey">RSVP</a>
       </div>
     </section>
@@ -50,23 +73,40 @@ import { tourStops } from "../data/events";
 
     <section class="dates-section" id="dates" aria-labelledby="dates-title">
       <img class="poster-stamp stamp-sheepcat" src="/assets/sheepcat.png" alt="" aria-hidden="true" />
-      <div class="section-label">Tour Stops</div>
-      <h2 id="dates-title">Four nights, one party</h2>
+      <div class="section-label">
+        <span data-lang="es">Fechas</span>
+        <span data-lang="en">Tour Stops</span>
+      </div>
+      <h2 id="dates-title">
+        <span data-lang="es">Cuatro noches, una fiesta</span>
+        <span data-lang="en">Four nights, one party</span>
+      </h2>
       <div class="date-grid">
-        {tourStops.map((stop) => (
+        {homeStops.map((stop) => (
           <article class="date-card">
             <a class="date-card-main" href={`/dates/${stop.slug}`}>
               <time datetime={stop.date}>{stop.dateLabel}</time>
               <h3>{stop.city}</h3>
-              <p>{stop.venue}</p>
+              <p>
+                <span data-lang="es">{stop.venueEs}</span>
+                <span data-lang="en">{stop.venue}</span>
+              </p>
             </a>
             <div class="date-card-actions">
-              <a href={`/dates/${stop.slug}`}>Details</a>
+              <a href={`/dates/${stop.slug}`}>
+                <span data-lang="es">Detalles</span>
+                <span data-lang="en">Details</span>
+              </a>
               {
                 stop.acceptsRsvp !== false ? (
                   <a href={`/rsvp/${stop.slug}`}>RSVP</a>
                 ) : (
-                  stop.addressHref && <a href={stop.addressHref}>Join Server</a>
+                  stop.addressHref && (
+                    <a href={stop.addressHref}>
+                      <span data-lang="es">Unirse</span>
+                      <span data-lang="en">Join Server</span>
+                    </a>
+                  )
                 )
               }
             </div>

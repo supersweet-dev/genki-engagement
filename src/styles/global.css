@@ -31,6 +31,23 @@ body {
   text-transform: uppercase;
 }
 
+body[data-theme="pink"] {
+  --paper: #ec3591;
+}
+
+body[data-theme="cyan"] {
+  --paper: #35e0ec;
+}
+
+body [data-lang] {
+  display: none;
+}
+
+body[data-lang="es"] [data-lang="es"],
+body[data-lang="en"] [data-lang="en"] {
+  display: contents;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -54,6 +71,7 @@ textarea {
   top: 0;
   z-index: 10;
   display: flex;
+  flex-wrap: wrap;
   align-items: stretch;
   justify-content: space-between;
   border-bottom: var(--hairline);
@@ -61,7 +79,8 @@ textarea {
 }
 
 .brand-lockup,
-.header-nav {
+.header-nav,
+.header-controls {
   display: flex;
   align-items: center;
 }
@@ -92,15 +111,60 @@ textarea {
 
 .header-nav {
   border-left: var(--hairline);
+  background: var(--ink);
+  color: var(--paper);
 }
 
-.header-nav a {
+.header-nav a,
+.header-controls button {
   display: grid;
   min-width: 5.75rem;
   place-items: center;
   padding: 0.75rem 1rem;
   border-left: var(--hairline);
+  border-color: var(--paper);
   font-size: 0.78rem;
+}
+
+.header-controls {
+  border-left: var(--hairline);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.header-controls button {
+  min-width: 3rem;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+}
+
+.header-controls button[aria-pressed="true"] {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.color-chip {
+  width: 3rem;
+  min-width: 3rem;
+}
+
+.color-chip::before {
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 1px solid currentColor;
+  content: "";
+}
+
+.color-chip-pink::before {
+  background: #ec3591;
+}
+
+.color-chip-cyan::before {
+  background: #35e0ec;
 }
 
 .poster-field {
@@ -767,14 +831,23 @@ h1 {
   .site-header {
     position: static;
     display: grid;
+    grid-template-columns: 1fr;
   }
 
   .header-nav,
+  .header-controls,
   .header-nav a:first-child {
     border-left: 0;
   }
 
-  .header-nav a {
+  .header-nav,
+  .header-controls {
+    width: 100%;
+    border-top: var(--hairline);
+  }
+
+  .header-nav a,
+  .header-controls button {
     flex: 1;
   }
 

@@ -13,7 +13,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -21,7 +21,45 @@ const {
     <meta name="theme-color" content="#94F345" />
     <title>{title}</title>
   </head>
-  <body>
+  <body data-lang="es" data-theme="green">
     <slot />
+    <script>
+      const root = document.documentElement;
+      const body = document.body;
+      const langButtons = document.querySelectorAll<HTMLButtonElement>("[data-lang-toggle]");
+      const colorButtons = document.querySelectorAll<HTMLButtonElement>("[data-color-toggle]");
+      const storedLang = localStorage.getItem("genki-lang");
+      const storedTheme = localStorage.getItem("genki-theme");
+
+      function setLang(lang: string | null | undefined) {
+        const nextLang = lang === "en" ? "en" : "es";
+        body.dataset.lang = nextLang;
+        root.lang = nextLang;
+        localStorage.setItem("genki-lang", nextLang);
+        langButtons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.langToggle === nextLang));
+        });
+      }
+
+      function setTheme(theme: string | null | undefined) {
+        const nextTheme = theme === "cyan" ? "cyan" : theme === "pink" ? "pink" : "green";
+        body.dataset.theme = nextTheme;
+        localStorage.setItem("genki-theme", nextTheme);
+        colorButtons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.colorToggle === nextTheme));
+        });
+      }
+
+      setLang(storedLang ?? "es");
+      setTheme(storedTheme ?? "green");
+
+      langButtons.forEach((button) => {
+        button.addEventListener("click", () => setLang(button.dataset.langToggle));
+      });
+
+      colorButtons.forEach((button) => {
+        button.addEventListener("click", () => setTheme(button.dataset.colorToggle));
+      });
+    </script>
   </body>
 </html>

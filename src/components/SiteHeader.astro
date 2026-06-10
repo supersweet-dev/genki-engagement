@@ -9,10 +9,22 @@ const isHome = Astro.url.pathname === "/";
       <img src="/assets/logo.png" alt="and" />
       JIMMI
     </span>
-    <span>ENGAGEMENT TOUR '26</span>
+    <span>
+      <span data-lang="es">TOUR DE COMPROMISO '26</span>
+      <span data-lang="en">ENGAGEMENT TOUR '26</span>
+    </span>
   </a>
   <nav class="header-nav" aria-label="Tour pages">
-    <a href="/#dates">Dates</a>
+    <a href="/#dates">
+      <span data-lang="es">Fechas</span>
+      <span data-lang="en">Dates</span>
+    </a>
     <a href="/rsvp/monterrey">RSVP</a>
   </nav>
+  <div class="header-controls" aria-label="Display controls">
+    <button type="button" data-lang-toggle="es" aria-pressed="true">ES</button>
+    <button type="button" data-lang-toggle="en" aria-pressed="false">EN</button>
+    <button class="color-chip color-chip-pink" type="button" data-color-toggle="pink" aria-label="Pink paper" aria-pressed="false"></button>
+    <button class="color-chip color-chip-cyan" type="button" data-color-toggle="cyan" aria-label="Cyan paper" aria-pressed="false"></button>
+  </div>
 </header>
