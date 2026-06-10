@@ -48,7 +48,12 @@ if (!stop) {
           )
         }
       </dl>
-      <a class="button-primary" href={`/rsvp/${stop.slug}`}>RSVP for {stop.city}</a>
+      <a
+        class={`button-primary detail-rsvp ${stop.slug === "monterrey" ? "featured-rsvp" : ""}`}
+        href={`/rsvp/${stop.slug}`}
+      >
+        RSVP for {stop.city}
+      </a>
     </section>
 
     <TourMarquee />
