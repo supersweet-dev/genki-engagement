@@ -79,7 +79,6 @@ textarea {
 }
 
 .brand-lockup,
-.header-nav,
 .header-controls {
   display: flex;
   align-items: center;
@@ -109,16 +108,9 @@ textarea {
   mix-blend-mode: multiply;
 }
 
-.header-nav {
-  border-left: var(--hairline);
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.header-nav a,
 .header-controls button {
   display: grid;
-  min-width: 5.75rem;
+  min-width: 3rem;
   place-items: center;
   padding: 0.75rem 1rem;
   border-left: var(--hairline);
@@ -133,7 +125,6 @@ textarea {
 }
 
 .header-controls button {
-  min-width: 3rem;
   border-top: 0;
   border-right: 0;
   border-bottom: 0;
@@ -838,19 +829,16 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .header-nav,
   .header-controls,
-  .header-nav a:first-child {
+  .header-controls button:first-child {
     border-left: 0;
   }
 
-  .header-nav,
   .header-controls {
     width: 100%;
     border-top: var(--hairline);
   }
 
-  .header-nav a,
   .header-controls button {
     flex: 1;
   }
