@@ -22,18 +22,19 @@ The project is configured for Vercel as a static Astro site.
 RSVPs post to the Vercel serverless function at `/api/rsvp` and are stored in Neon Postgres.
 
 1. Create a Neon database.
-2. Run `sql/schema.sql` in the Neon SQL editor.
-3. Add `DATABASE_URL` to the Vercel project environment variables:
+2. Add `DATABASE_URL` to the Vercel project environment variables:
 
 ```sh
 vercel env add DATABASE_URL
 ```
 
-4. Deploy with the Vercel CLI:
+3. Deploy with the Vercel CLI:
 
 ```sh
 vercel deploy
 ```
+
+Vercel runs `npm run deploy-build`, which applies any pending files in `sql/migrations/` before building the Astro site.
 
 The form stores event slug, event city, event date, name, phone, guest count, attendance, the Monterrey overnight travel answer, note, and submit time.
 

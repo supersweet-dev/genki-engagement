@@ -4,5 +4,7 @@ dist
 .vercel
 .vercel-home
 .npm-cache
+.env
+.env*.local
 .DS_Store
 npm-debug.log*
