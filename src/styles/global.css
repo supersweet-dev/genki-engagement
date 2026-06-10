@@ -562,15 +562,15 @@ h1 {
 }
 
 .details-copy {
-  max-width: 68rem;
-  padding-right: clamp(10rem, 28vw, 22rem);
+  max-width: 78rem;
+  padding-right: clamp(15rem, 34vw, 30rem);
 }
 
 .details-photo {
   position: absolute;
-  top: clamp(6rem, 12vw, 9rem);
-  right: clamp(1rem, 5vw, 4rem);
-  width: clamp(8rem, 23vw, 17rem);
+  top: clamp(5.5rem, 10vw, 8rem);
+  right: clamp(0.8rem, 3vw, 2.5rem);
+  width: clamp(13rem, 31vw, 25rem);
   aspect-ratio: 1;
   object-fit: contain;
   filter: grayscale(1) contrast(2);
@@ -578,27 +578,16 @@ h1 {
   transform: rotate(4deg);
 }
 
-.flag-row {
-  display: flex;
-  align-items: end;
-  gap: clamp(1rem, 4vw, 3rem);
+.details-mascot {
   margin-bottom: clamp(1rem, 4vw, 3rem);
 }
 
-.flag-row img {
+.details-mascot img {
   display: block;
-  width: clamp(4.5rem, 14vw, 9rem);
+  width: clamp(5rem, 13vw, 9rem);
   filter: grayscale(1) contrast(2);
   mix-blend-mode: multiply;
-}
-
-.flag-row img:nth-child(2) {
-  transform: rotate(5deg);
-}
-
-.flag-row img:nth-child(3) {
-  width: clamp(5rem, 16vw, 11rem);
-  transform: rotate(-7deg);
+  transform: rotate(-6deg);
 }
 
 .details-copy p {
@@ -763,10 +752,16 @@ h1 {
 
   .stamp-sheepcat,
   .stamp-detail,
-  .stamp-rsvp,
-  .details-photo {
+  .stamp-rsvp {
     width: 9rem;
     opacity: 0.35;
+  }
+
+  .details-photo {
+    top: 6rem;
+    right: 0.5rem;
+    width: clamp(10rem, 42vw, 13rem);
+    opacity: 0.3;
   }
 
   .details-copy {
