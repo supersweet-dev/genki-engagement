@@ -53,6 +53,8 @@ body[data-lang="en"] .bill-venue [data-lang="en"],
 body[data-lang="es"] .date-card p [data-lang="es"],
 body[data-lang="en"] .date-card p [data-lang="en"] {
   display: block;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 a {
@@ -566,10 +568,6 @@ h1 {
   margin-bottom: 0;
   font-size: 1rem;
   line-height: 1.02;
-}
-
-.date-card p [data-lang="es"] {
-  font-size: 1.08em;
 }
 
 .date-card-actions {
