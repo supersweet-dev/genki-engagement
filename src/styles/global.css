@@ -624,8 +624,12 @@ h1 {
   margin-bottom: 1rem;
 }
 
-.rsvp-title {
+.rsvp-shell .rsvp-title {
+  width: fit-content;
+  max-width: min(100%, 11ch);
   font-size: clamp(2.45rem, 7.6vw, 8rem);
+  white-space: normal;
+  overflow-wrap: normal;
 }
 
 .rsvp-deadline {
@@ -769,6 +773,11 @@ h1 {
   .stamp-rsvp {
     width: 9rem;
     opacity: 0.35;
+  }
+
+  .stamp-rsvp {
+    top: 17rem;
+    right: -1rem;
   }
 
   .details-photo {
