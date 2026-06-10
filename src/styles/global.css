@@ -211,9 +211,9 @@ h1 {
 .tour-title {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  width: 100%;
+  width: fit-content;
   max-width: none;
-  gap: 0.1em;
+  gap: 0.04em;
   font-size: clamp(2.2rem, 3.45vw, 4.35rem);
   line-height: 0.78;
 }
@@ -229,7 +229,7 @@ h1 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  width: min(100%, 13.2em);
+  width: min(100%, 11.8em);
 }
 
 .title-names span:first-child {
@@ -243,9 +243,9 @@ h1 {
 .title-tour {
   display: grid;
   grid-template-columns: minmax(0, auto) minmax(3.4ch, 1fr);
-  gap: 0.08em;
+  gap: 0.04em;
   align-items: stretch;
-  width: min(100%, 13.2em);
+  width: min(100%, 11.8em);
 }
 
 .title-words {
