@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import { getTourStop, tourStops } from "../../data/events";
+
+export function getStaticPaths() {
+  return tourStops.map((stop) => ({
+    params: { slug: stop.slug }
+  }));
+}
+
+const stop = getTourStop(Astro.params.slug ?? "");
+
+if (!stop) {
+  return Astro.redirect("/");
+}
+---
+
+<BaseLayout title={`RSVP ${stop.city} | Hideki & Jimmi Engagement Tour '26`}>
+  <SiteHeader />
+  <main>
+    <section class="rsvp-shell poster-field" aria-labelledby="rsvp-title">
+      <img class="poster-stamp stamp-rsvp" src="/assets/gem-flag.png" alt="" aria-hidden="true" />
+      <a class="back-link" href={`/dates/${stop.slug}`}>Back to {stop.city}</a>
+      <p class="kicker">{stop.dateLabel} / {stop.venue}</p>
+      <h1 id="rsvp-title">RSVP {stop.city}</h1>
+      {stop.rsvpDeadline && <p class="rsvp-deadline">{stop.rsvpDeadline}</p>}
+
+      <form
+        class="rsvp-form"
+        action="/api/rsvp"
+        method="post"
+      >
+        <input type="hidden" name="event_slug" value={stop.slug} />
+        <input type="hidden" name="event_city" value={stop.city} />
+        <input type="hidden" name="event_date" value={stop.date} />
+        <label class="hp-field" aria-hidden="true">
+          Website
+          <input name="website" tabindex="-1" autocomplete="off" />
+        </label>
+        <label>
+          Name
+          <input name="name" autocomplete="name" required />
+        </label>
+        <label>
+          Phone
+          <input name="phone" type="tel" autocomplete="tel" required />
+        </label>
+        <label>
+          Guests
+          <select name="guests" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </label>
+        <fieldset>
+          <legend>Can you make it?</legend>
+          <label class="choice">
+            <input type="radio" name="attending" value="yes" required />
+            Yes
+          </label>
+          <label class="choice">
+            <input type="radio" name="attending" value="no" />
+            No
+          </label>
+        </fieldset>
+        {
+          stop.slug === "monterrey" && (
+            <fieldset>
+              <legend>Would you travel to Montemorelos / Santiago and stay overnight?</legend>
+              <label class="choice">
+                <input type="radio" name="overnight_travel" value="yes" required />
+                Yes
+              </label>
+              <label class="choice">
+                <input type="radio" name="overnight_travel" value="no" />
+                No
+              </label>
+            </fieldset>
+          )
+        }
+        <label>
+          Song request / note
+          <textarea name="note" rows="5" required></textarea>
+        </label>
+        <button type="submit">Send RSVP</button>
+      </form>
+    </section>
+  </main>
+</BaseLayout>

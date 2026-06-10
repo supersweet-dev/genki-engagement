@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import SiteHeader from "../../../components/SiteHeader.astro";
+import { getTourStop, tourStops } from "../../../data/events";
+
+export function getStaticPaths() {
+  return tourStops.map((stop) => ({
+    params: { slug: stop.slug }
+  }));
+}
+
+const stop = getTourStop(Astro.params.slug ?? "");
+
+if (!stop) {
+  return Astro.redirect("/");
+}
+---
+
+<BaseLayout title={`Thanks ${stop.city} | Hideki & Jimmi Engagement Tour '26`}>
+  <SiteHeader />
+  <main>
+    <section class="detail-hero poster-field" aria-labelledby="thanks-title">
+      <img class="poster-stamp stamp-detail" src="/assets/tree-flag.png" alt="" aria-hidden="true" />
+      <a class="back-link" href={`/dates/${stop.slug}`}>Back to {stop.city}</a>
+      <p class="kicker">{stop.dateLabel} / {stop.venue}</p>
+      <h1 id="thanks-title">RSVP RECEIVED</h1>
+      <p class="venue-line">Thank you. See you on tour.</p>
+      <a class="button-primary" href="/">Back to dates</a>
+    </section>
+  </main>
+</BaseLayout>

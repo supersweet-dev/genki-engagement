@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import TourMarquee from "../components/TourMarquee.astro";
+import { tourStops } from "../data/events";
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main>
+    <section class="hero poster-field" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="kicker">Xerox on neon paper</p>
+        <h1 id="page-title">hideki & jimmi engagement tour '26</h1>
+      </div>
+      <div class="hero-photo" aria-label="Hideki and Jimmi">
+        <img src="/assets/hj-photo.png" alt="Hideki and Jimmi" />
+      </div>
+      <div class="hero-bill" aria-label="Tour dates">
+        {tourStops.map((stop) => (
+          <a class="bill-row" href={`/dates/${stop.slug}`}>
+            <span>{stop.dateLabel}</span>
+            <span>{stop.city}</span>
+            <span>{stop.venue}</span>
+          </a>
+        ))}
+      </div>
+      <div class="hero-actions">
+        <a class="button-primary" href="#dates">See Dates</a>
+        <a class="button-secondary" href="/rsvp/austin">RSVP</a>
+      </div>
+    </section>
+
+    <TourMarquee />
+
+    <section class="dates-section" id="dates" aria-labelledby="dates-title">
+      <img class="poster-stamp stamp-sheepcat" src="/assets/sheepcat.png" alt="" aria-hidden="true" />
+      <div class="section-label">Tour Stops</div>
+      <h2 id="dates-title">Four nights, four cities, one loud little love tour.</h2>
+      <div class="date-grid">
+        {tourStops.map((stop) => (
+          <article class="date-card">
+            <a class="date-card-main" href={`/dates/${stop.slug}`}>
+              <time datetime={stop.date}>{stop.dateLabel}</time>
+              <h3>{stop.city}</h3>
+              <p>{stop.venue}</p>
+            </a>
+            <div class="date-card-actions">
+              <a href={`/dates/${stop.slug}`}>Details</a>
+              <a href={`/rsvp/${stop.slug}`}>RSVP</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+const isHome = Astro.url.pathname === "/";
+---
+
+<header class="site-header" aria-label="Primary">
+  <a class="brand-lockup" href="/" aria-current={isHome ? "page" : undefined}>
+    <span>HIDEKI & JIMMI</span>
+    <span>ENGAGEMENT TOUR '26</span>
+  </a>
+  <nav class="header-nav" aria-label="Tour pages">
+    <a href="/#dates">Dates</a>
+    <a href="/rsvp/austin">RSVP</a>
+  </nav>
+</header>

@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import TourMarquee from "../../components/TourMarquee.astro";
+import { getTourStop, tourStops } from "../../data/events";
+
+export function getStaticPaths() {
+  return tourStops.map((stop) => ({
+    params: { slug: stop.slug }
+  }));
+}
+
+const stop = getTourStop(Astro.params.slug ?? "");
+
+if (!stop) {
+  return Astro.redirect("/");
+}
+---
+
+<BaseLayout title={`${stop.city} | Hideki & Jimmi Engagement Tour '26`}>
+  <SiteHeader />
+  <main>
+    <section class="detail-hero poster-field" aria-labelledby="stop-title">
+      <img class="poster-stamp stamp-detail" src="/assets/lamp.png" alt="" aria-hidden="true" />
+      <a class="back-link" href="/#dates">Back to dates</a>
+      <p class="kicker">{stop.dateLabel}</p>
+      <h1 id="stop-title">{stop.city}</h1>
+      <p class="venue-line">{stop.venue}</p>
+      <dl class="stop-facts">
+        <div>
+          <dt>Date</dt>
+          <dd><time datetime={stop.date}>{stop.dateLabel}, 2026</time></dd>
+        </div>
+        <div>
+          <dt>Place</dt>
+          <dd>{stop.address}</dd>
+        </div>
+        <div>
+          <dt>Time</dt>
+          <dd>{stop.time}</dd>
+        </div>
+        {
+          stop.rsvpDeadline && (
+            <div>
+              <dt>RSVP</dt>
+              <dd>{stop.rsvpDeadline}</dd>
+            </div>
+          )
+        }
+      </dl>
+      <a class="button-primary" href={`/rsvp/${stop.slug}`}>RSVP for {stop.city}</a>
+    </section>
+
+    <TourMarquee />
+
+    <section class="details-copy" aria-label="Stop details">
+      <div class="flag-row" aria-hidden="true">
+        <img src="/assets/tree-flag.png" alt="" />
+        <img src="/assets/gem-flag.png" alt="" />
+        <img src="/assets/invite-v2-vfosf.png" alt="" />
+      </div>
+      {stop.details.map((item) => <p>{item}</p>)}
+    </section>
+  </main>
+</BaseLayout>

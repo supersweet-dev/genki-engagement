@@ -1,0 +1,11 @@
+---
+import { tourStops } from "../data/events";
+
+const line = tourStops.map((stop) => `${stop.dateLabel} ${stop.city}`).join(" / ");
+---
+
+<div class="tour-marquee" aria-hidden="true">
+  <span>{line}</span>
+  <span>{line}</span>
+  <span>{line}</span>
+</div>
