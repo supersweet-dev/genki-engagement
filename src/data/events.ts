@@ -1,3 +1,11 @@
+export type DetailItem =
+  | string
+  | {
+      text: string;
+      href: string;
+      label: string;
+    };
+
 export type TourStop = {
   slug: string;
   date: string;
@@ -5,9 +13,10 @@ export type TourStop = {
   city: string;
   venue: string;
   address: string;
+  addressHref?: string;
   time: string;
   rsvpDeadline?: string;
-  details: string[];
+  details: DetailItem[];
 };
 
 export const tourStops: TourStop[] = [
@@ -62,12 +71,16 @@ export const tourStops: TourStop[] = [
     dateLabel: "Aug29",
     city: "DISCORD",
     venue: "Game Night",
-    address: "discord.gg/QSc7EDSyN2",
+    address: "wedding server",
+    addressHref: "https://discord.gg/QSc7EDSyN2",
     time: "Details soon",
     details: [
       "Game night from wherever your best internet lives.",
-      "Server link: https://discord.gg/QSc7EDSyN2",
-      "Bring a headset, a suspiciously strong opinion, and one game you can teach in five minutes."
+      {
+        text: "Meet us in the ",
+        href: "https://discord.gg/QSc7EDSyN2",
+        label: "wedding server"
+      }
     ]
   }
 ];

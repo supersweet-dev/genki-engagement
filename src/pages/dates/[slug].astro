@@ -34,7 +34,15 @@ if (!stop) {
         </div>
         <div>
           <dt>Place</dt>
-          <dd>{stop.address}</dd>
+          <dd>
+            {
+              stop.addressHref ? (
+                <a href={stop.addressHref}>{stop.address}</a>
+              ) : (
+                stop.address
+              )
+            }
+          </dd>
         </div>
         <div>
           <dt>Time</dt>
@@ -62,12 +70,26 @@ if (!stop) {
     <TourMarquee />
 
     <section class="details-copy" aria-label="Stop details">
+      <img class="poster-stamp details-sheepcat" src="/assets/sheepcat.png" alt="" aria-hidden="true" />
       <div class="flag-row" aria-hidden="true">
         <img src="/assets/tree-flag.png" alt="" />
         <img src="/assets/gem-flag.png" alt="" />
         <img src="/assets/logo.png" alt="" />
       </div>
-      {stop.details.map((item) => <p>{item}</p>)}
+      {
+        stop.details.map((item) => (
+          <p>
+            {typeof item === "string" ? (
+              item
+            ) : (
+              <>
+                {item.text}
+                <a href={item.href}>{item.label}</a>
+              </>
+            )}
+          </p>
+        ))
+      }
     </section>
   </main>
 </BaseLayout>

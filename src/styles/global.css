@@ -526,6 +526,7 @@ h1 {
 }
 
 .stop-facts div {
+  min-width: 0;
   padding: 1rem;
   border-right: var(--hairline);
 }
@@ -540,8 +541,19 @@ h1 {
 }
 
 .stop-facts dd {
+  max-width: 100%;
   margin: 0;
   font-size: clamp(1.15rem, 2vw, 1.6rem);
+  line-height: 0.95;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.stop-facts a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
 }
 
 .stop-facts .deadline-fact {
@@ -551,6 +563,16 @@ h1 {
 
 .details-copy {
   max-width: 68rem;
+  padding-right: clamp(8rem, 24vw, 18rem);
+}
+
+.details-sheepcat {
+  position: absolute;
+  top: clamp(8rem, 18vw, 14rem);
+  right: clamp(1rem, 5vw, 4rem);
+  width: clamp(5.5rem, 17vw, 12rem);
+  opacity: 0.92;
+  transform: rotate(8deg);
 }
 
 .flag-row {
@@ -581,6 +603,14 @@ h1 {
   padding: 1.2rem 0;
   font-size: clamp(1.4rem, 4vw, 3.2rem);
   line-height: 0.95;
+  overflow-wrap: anywhere;
+}
+
+.details-copy a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
 }
 
 .rsvp-shell h1 {
@@ -730,9 +760,14 @@ h1 {
 
   .stamp-sheepcat,
   .stamp-detail,
-  .stamp-rsvp {
+  .stamp-rsvp,
+  .details-sheepcat {
     width: 9rem;
     opacity: 0.35;
+  }
+
+  .details-copy {
+    padding-right: clamp(1rem, 5vw, 4rem);
   }
 
   h1 {
