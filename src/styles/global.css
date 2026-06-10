@@ -118,9 +118,9 @@ textarea {
 .hero {
   display: grid;
   min-height: calc(100vh - 52px);
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.75fr) minmax(20rem, 0.85fr);
+  grid-template-columns: minmax(24rem, 1.25fr) minmax(14rem, 0.65fr) minmax(19rem, 0.85fr);
   grid-template-rows: 1fr auto;
-  gap: clamp(1.5rem, 5vw, 4rem);
+  gap: clamp(1.25rem, 3.5vw, 3rem);
   padding: clamp(2rem, 7vw, 6rem);
   padding-bottom: clamp(4rem, 10vw, 7rem);
 }
@@ -128,12 +128,16 @@ textarea {
 .hero-copy {
   min-width: 0;
   align-self: center;
+  grid-column: 1;
+  z-index: 2;
 }
 
 .hero-photo {
   position: relative;
   align-self: center;
   min-width: 0;
+  grid-column: 2;
+  z-index: 1;
   border: var(--hairline);
   background: var(--paper);
   transform: rotate(2deg);
@@ -180,15 +184,18 @@ h1 {
 
 .tour-title {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
   max-width: none;
   gap: 0.14em;
-  font-size: clamp(2.35rem, 5.7vw, 5.8rem);
+  font-size: clamp(1.65rem, 2vw, 3rem);
   line-height: 0.82;
 }
 
 .tour-title span,
 .fit-title {
   display: block;
+  min-width: 0;
   white-space: nowrap;
 }
 
@@ -200,6 +207,8 @@ h1 {
 .hero-bill {
   min-width: 0;
   align-self: center;
+  grid-column: 3;
+  z-index: 1;
   border: var(--hairline);
   background: var(--paper);
   transform: rotate(-2deg);
@@ -219,8 +228,8 @@ h1 {
 
 .bill-row span:nth-child(2) {
   min-width: 0;
-  overflow-wrap: normal;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+  white-space: normal;
   font-size: clamp(1.35rem, 3vw, 2.4rem);
   line-height: 0.9;
 }
@@ -333,8 +342,8 @@ h1 {
 
 .date-card h3 {
   margin: auto 0 0;
-  overflow-wrap: normal;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
+  white-space: normal;
   font-size: clamp(2rem, 5vw, 4.2rem);
   line-height: 0.82;
 }
@@ -536,6 +545,12 @@ h1 {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .hero-copy,
+  .hero-photo,
+  .hero-bill {
+    grid-column: 1;
+  }
+
   .hero-photo {
     max-width: 28rem;
     transform: none;
@@ -611,7 +626,7 @@ h1 {
   }
 
   .tour-title {
-    font-size: clamp(1.8rem, 9vw, 3rem);
+    font-size: clamp(1rem, 5vw, 1.45rem);
   }
 
   .fit-title {
