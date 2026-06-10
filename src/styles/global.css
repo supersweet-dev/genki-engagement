@@ -797,10 +797,13 @@ h1 {
   }
 
   .details-photo-frame {
-    top: 6rem;
-    right: 0.5rem;
-    width: clamp(10rem, 42vw, 13rem);
-    opacity: 0.3;
+    position: relative;
+    top: auto;
+    right: auto;
+    order: 2;
+    width: min(100%, 21rem);
+    margin: 1.4rem auto 2.2rem;
+    opacity: 1;
   }
 
   .details-mascot {
@@ -814,7 +817,13 @@ h1 {
   }
 
   .details-copy {
+    display: flex;
+    flex-direction: column;
     padding-right: clamp(1rem, 5vw, 4rem);
+  }
+
+  .details-copy p {
+    order: 1;
   }
 
   h1 {
