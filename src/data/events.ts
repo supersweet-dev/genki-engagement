@@ -52,7 +52,7 @@ export const tourStops: TourStop[] = [
     details: [
       "A borderlands night stop.",
       "Let's (try) to party like when we were in college.",
-      "Final timing and room details will land here."
+      "Let's hit the usuals: Suerte, Flying Walrus, etc... if they still exist?"
     ]
   },
   {
