@@ -87,6 +87,7 @@ export const tourStops: TourStop[] = [
     details: [
       "Game night from wherever your best internet lives.",
       "We will also use the server for wedding updates, tiny announcements, and any side quests that become official.",
+      "Yes, Genki is our ship name and it is cute.",
       {
         text: "Meet us in the ",
         href: "https://discord.gg/QSc7EDSyN2",
