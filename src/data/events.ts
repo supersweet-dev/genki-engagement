@@ -59,14 +59,15 @@ export const tourStops: TourStop[] = [
     dateLabel: "Aug15",
     city: "MONTERREY",
     venue: "Quinta TBD",
-    address: "Montemorelos / Santiago, NL",
+    address: "Nuevo Leon, TBD",
     time: "Details soon",
     rsvpDeadline: "RSVP by July 3",
     details: [
-      "RSVP by July 3 so we can confirm the guest count.",
-      "We are thinking of renting a quinta.",
-      "Final location and activity are pending the total guest count.",
-      "Let us know if you would travel to Montemorelos or Santiago and stay overnight."
+      "RSVP by July 3 so we can lock the guest count and choose the right quinta.",
+      "Place is TBD in Nuevo Leon, depending on who is in for the overnight adventure.",
+      "Pool forecast: bring something you can splash in.",
+      "Music and singing forecast: bring a song you are emotionally prepared to defend.",
+      "BBQ forecast: smoke, snacks, cold drinks, and a very loud little love party."
     ]
   }
 ];
