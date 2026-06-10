@@ -12,20 +12,6 @@ export type TourStop = {
 
 export const tourStops: TourStop[] = [
   {
-    slug: "austin",
-    date: "2026-07-04",
-    dateLabel: "Jul04",
-    city: "AUSTIN",
-    venue: "Kura Revolving Sushi",
-    address: "Austin, TX",
-    time: "Details soon",
-    details: [
-      "Sushi belt rendezvous.",
-      "Neon paper, black ink, big feelings.",
-      "Final timing and room details will land here."
-    ]
-  },
-  {
     slug: "minneapolis",
     date: "2026-07-17",
     dateLabel: "Jul17",
@@ -58,7 +44,7 @@ export const tourStops: TourStop[] = [
     date: "2026-08-15",
     dateLabel: "Aug15",
     city: "MONTERREY",
-    venue: "Quinta TBD",
+    venue: "RSVP for Quinta",
     address: "Nuevo Leon, TBD",
     time: "Details soon",
     rsvpDeadline: "RSVP by July 3",
@@ -68,6 +54,20 @@ export const tourStops: TourStop[] = [
       "Pool forecast: bring something you can splash in.",
       "Music and singing forecast: bring a song you are emotionally prepared to defend.",
       "BBQ forecast: smoke, snacks, cold drinks, and a very loud little love party."
+    ]
+  },
+  {
+    slug: "discord",
+    date: "2026-08-29",
+    dateLabel: "Aug29",
+    city: "DISCORD",
+    venue: "Game Night",
+    address: "TBD Discord Server",
+    time: "Details soon",
+    details: [
+      "Game night from wherever your best internet lives.",
+      "Server link is TBD, snacks are BYO, chaos is provided.",
+      "Bring a headset, a suspiciously strong opinion, and one game you can teach in five minutes."
     ]
   }
 ];

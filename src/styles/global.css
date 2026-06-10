@@ -178,8 +178,14 @@ textarea {
 
 .kicker,
 .section-label {
+  display: inline-flex;
+  width: fit-content;
   margin: 0 0 1rem;
+  padding: 0.35rem 0.55rem;
+  background: var(--ink);
+  color: var(--paper);
   font-size: clamp(0.82rem, 2vw, 1.1rem);
+  line-height: 0.9;
 }
 
 h1,
@@ -203,12 +209,12 @@ h1 {
   grid-template-columns: minmax(0, 1fr);
   width: 100%;
   max-width: none;
-  gap: 0.14em;
-  font-size: clamp(2rem, 3vw, 3.8rem);
-  line-height: 0.82;
+  gap: 0.1em;
+  font-size: clamp(2.05rem, 3.2vw, 4.05rem);
+  line-height: 0.78;
 }
 
-.tour-title span,
+.tour-title > span,
 .fit-title {
   display: block;
   min-width: 0;
@@ -217,6 +223,40 @@ h1 {
 
 .tour-title .title-names {
   display: inline-flex;
+}
+
+.title-tour {
+  display: grid;
+  grid-template-columns: minmax(0, auto) minmax(3.4ch, 1fr);
+  gap: 0.08em;
+  align-items: stretch;
+  width: min(100%, 13.2em);
+}
+
+.title-words {
+  display: grid;
+  justify-items: end;
+  gap: 0.03em;
+  text-align: right;
+  transform: skewX(-9deg);
+  transform-origin: right center;
+}
+
+.title-year {
+  display: grid;
+  align-items: center;
+  justify-items: start;
+  font-size: 2.28em;
+  line-height: 0.68;
+}
+
+.tour-title .title-tour {
+  display: grid;
+}
+
+.tour-title .title-words,
+.tour-title .title-year {
+  min-width: 0;
 }
 
 .title-names img {
@@ -420,8 +460,8 @@ h1 {
   margin: auto 0 0;
   overflow-wrap: anywhere;
   white-space: normal;
-  font-size: clamp(2rem, 5vw, 4.2rem);
-  line-height: 0.82;
+  font-size: clamp(3.2rem, 6.4vw, 6.2rem);
+  line-height: 0.72;
 }
 
 .date-card p {
@@ -702,7 +742,7 @@ h1 {
   }
 
   .tour-title {
-    font-size: clamp(1.45rem, 7vw, 2.35rem);
+    font-size: clamp(1.55rem, 7.4vw, 2.55rem);
   }
 
   .fit-title {

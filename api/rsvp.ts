@@ -14,7 +14,7 @@ type VercelResponse = {
   redirect: (statusOrUrl: number | string, url?: string) => void;
 };
 
-const eventSlugs = new Set(["austin", "minneapolis", "mcallen", "monterrey"]);
+const eventSlugs = new Set(["minneapolis", "mcallen", "monterrey", "discord"]);
 
 function getField(body: unknown, key: string) {
   if (typeof body === "string") {
@@ -87,7 +87,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     : req.headers?.["user-agent"] ?? "";
 
   if (website) {
-    res.redirect(303, `/rsvp/${eventSlug || "austin"}/thanks`);
+    res.redirect(303, `/rsvp/${eventSlug || "minneapolis"}/thanks`);
     return;
   }
 
