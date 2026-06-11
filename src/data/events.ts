@@ -56,13 +56,13 @@ export const tourStops: TourStop[] = [
     detailPhoto: "/assets/hj-photo.png",
     details: [
       "Karaoke stop on the engagement tour.",
-      "Bring your best chorus and your loudest congratulations.",
-      "Final timing and room details will land here."
+      "Prepare your best songs and your loudest congratulations.",
+      "Booking details landing soon."
     ],
     detailsEs: [
       { es: "Parada de karaoke en el tour de compromiso.", en: "Karaoke stop on the engagement tour." },
-      { es: "Trae tu mejor coro y tus felicitaciones mas ruidosas.", en: "Bring your best chorus and your loudest congratulations." },
-      { es: "Los detalles finales de hora y cuarto van a caer aqui.", en: "Final timing and room details will land here." }
+      { es: "Prepara tus mejores canciones y tus felicitaciones mas ruidosas.", en: "Prepare your best songs and your loudest congratulations." },
+      { es: "Detalles de la reservacion aterrizando pronto.", en: "Booking details landing soon." }
     ]
   },
   {
@@ -104,14 +104,14 @@ export const tourStops: TourStop[] = [
     rsvpDeadlineEs: "RSVP antes del 3 de julio",
     detailPhoto: "/assets/hj-photo3.png",
     details: [
-      "RSVP by July 3 so we can lock the guest count and choose the right quinta.",
-      "Place is TBD in Nuevo Leon, depending on who is in for the overnight adventure.",
-      "Forecast: pool splashes, BBQ smoke, too much sun, and singing like the quinta came with a spotlight."
+      "RSVP by July 3 so we can lock the guest count and choose the perfect quinta.",
+      "Forecast: pool splashes, BBQ smoke, too much sun, and singing like the quinta came with a spotlight.",
+      "Place is TBD in Nuevo Leon, depending on who is in for the overnight adventure."
     ],
     detailsEs: [
-      { es: "RSVP antes del 3 de julio para cerrar el conteo y escoger la quinta correcta.", en: "RSVP by July 3 so we can lock the guest count and choose the right quinta." },
-      { es: "Lugar por confirmar en Nuevo Leon, dependiendo de quien se apunte a la aventura con noche incluida.", en: "Place is TBD in Nuevo Leon, depending on who is in for the overnight adventure." },
-      { es: "Pronostico: alberca, humo de BBQ, demasiado sol, y canto como si la quinta viniera con reflector.", en: "Forecast: pool splashes, BBQ smoke, too much sun, and singing like the quinta came with a spotlight." }
+      { es: "RSVP antes del 3 de julio para cerrar el conteo y escoger la quinta perfecta.", en: "RSVP by July 3 so we can lock the guest count and choose the perfect quinta." },
+      { es: "Pronostico: alberca, humo de BBQ, demasiado sol, y canto como si la quinta viniera con reflector.", en: "Forecast: pool splashes, BBQ smoke, too much sun, and singing like the quinta came with a spotlight." },
+      { es: "Lugar por confirmar en Nuevo Leon, dependiendo de quien se apunte a la aventura con noche incluida.", en: "Place is TBD in Nuevo Leon, depending on who is in for the overnight adventure." }
     ]
   },
   {
@@ -129,7 +129,7 @@ export const tourStops: TourStop[] = [
     acceptsRsvp: false,
     detailPhoto: "/assets/hj-photo4.png",
     details: [
-      "Game night from wherever your best internet lives.",
+      "Closing out with a digital encore.",
       "We will also use the server for wedding updates, tiny announcements, and any side quests that become official.",
       "Yes, Genki is our ship name and it is cute.",
       {
@@ -139,7 +139,7 @@ export const tourStops: TourStop[] = [
       }
     ],
     detailsEs: [
-      { es: "Noche de juegos desde donde viva tu mejor internet.", en: "Game night from wherever your best internet lives." },
+      { es: "Cerramos con un encore digital.", en: "Closing out with a digital encore." },
       { es: "Tambien vamos a usar el servidor para updates de la boda, anuncios chiquitos y side quests que se vuelvan oficiales.", en: "We will also use the server for wedding updates, tiny announcements, and any side quests that become official." },
       { es: "Si, Genki es nuestro ship name y esta cute.", en: "Yes, Genki is our ship name and it is cute." },
       {
