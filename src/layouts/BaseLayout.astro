@@ -42,7 +42,7 @@ const {
       }
 
       function setTheme(theme: string | null | undefined) {
-        const nextTheme = theme === "cyan" ? "cyan" : theme === "pink" ? "pink" : "green";
+        const nextTheme = theme === "cyan" ? "cyan" : theme === "pink" ? "pink" : theme === "orange" ? "orange" : "green";
         body.dataset.theme = nextTheme;
         localStorage.setItem("genki-theme", nextTheme);
         colorButtons.forEach((button) => {

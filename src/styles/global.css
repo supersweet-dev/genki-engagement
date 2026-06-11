@@ -43,6 +43,10 @@ body[data-theme="green"] {
   --paper: #94f345;
 }
 
+body[data-theme="orange"] {
+  --paper: #ff6f35;
+}
+
 body [data-lang] {
   display: none;
 }
@@ -182,6 +186,10 @@ textarea {
 
 .color-chip-green::before {
   background: #94f345;
+}
+
+.color-chip-orange::before {
+  background: #ff6f35;
 }
 
 .poster-field {
