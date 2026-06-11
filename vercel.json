@@ -1,5 +1,11 @@
 {
+  "framework": "astro",
   "installCommand": "npm install",
   "buildCommand": "npm run deploy-build",
-  "devCommand": "npm run dev -- --host 127.0.0.1"
+  "rewrites": [
+    {
+      "source": "/admin",
+      "destination": "/api/admin"
+    }
+  ]
 }

@@ -4,6 +4,23 @@ import PapelPicado from "../components/PapelPicado.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import TourMarquee from "../components/TourMarquee.astro";
 import { tourStops } from "../data/events";
+
+const cityLayouts: Record<string, string[]> = {
+  minneapolis: ["MIN", "NEA", "POLIS"],
+  mcallen: ["MC", "ALL", "EN"],
+  monterrey: ["MON", "TER", "REY"],
+  discord: ["GENKI", "DISCORD", "SERVER"]
+};
+
+function getCityLines(slug: string, city: string) {
+  return cityLayouts[slug] ?? [city];
+}
+
+function getLineY(index: number, total: number) {
+  if (total === 1) return 50;
+  if (total === 2) return index === 0 ? 27 : 73;
+  return [18, 50, 82][index] ?? 50;
+}
 ---
 
 <BaseLayout>
@@ -22,7 +39,7 @@ import { tourStops } from "../data/events";
               <span>engagement</span>
               <span>tour</span>
             </span>
-            <span class="title-year">'26</span>
+            <span class="title-year">26</span>
           </span>
         </h1>
         <div class="hero-photo" aria-label="Hideki and Jimmi">
@@ -69,7 +86,23 @@ import { tourStops } from "../data/events";
           <article class="date-card">
             <a class="date-card-main" href={`/dates/${stop.slug}`}>
               <time datetime={stop.date}>{stop.dateLabel}</time>
-              <h3>{stop.city}</h3>
+              <h3 aria-label={stop.city}>
+                <svg class="city-square-text" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                  {
+                    getCityLines(stop.slug, stop.city).map((line, index, lines) => (
+                      <text
+                        x="0"
+                        y={getLineY(index, lines.length)}
+                        textLength="100"
+                        lengthAdjust="spacingAndGlyphs"
+                      >
+                        {line}
+                      </text>
+                    ))
+                  }
+                </svg>
+                <span class="sr-only">{stop.city}</span>
+              </h3>
               <p>
                 <span data-lang="es">{stop.venueEs}</span>
                 <span data-lang="en">{stop.venue}</span>

@@ -1,5 +1,5 @@
 :root {
-  --paper: #94f345;
+  --paper: #35e0ec;
   --ink: #000000;
   --hairline: 2px solid var(--ink);
   font-family: Copperplate, "Copperplate Gothic Light", "Copperplate Gothic Bold", fantasy;
@@ -39,6 +39,10 @@ body[data-theme="cyan"] {
   --paper: #35e0ec;
 }
 
+body[data-theme="green"] {
+  --paper: #94f345;
+}
+
 body [data-lang] {
   display: none;
 }
@@ -60,6 +64,15 @@ body[data-lang="en"] .date-card p [data-lang="en"] {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 
 button,
@@ -492,18 +505,40 @@ h1 {
 }
 
 .tour-marquee {
+  --marquee-gap: 1.5rem;
   display: flex;
-  gap: 1.5rem;
+  gap: var(--marquee-gap);
   overflow: hidden;
   border-block: var(--hairline);
   background: var(--ink);
   color: var(--paper);
   font-size: clamp(1rem, 3vw, 2rem);
   white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .tour-marquee span {
+  flex: 0 0 auto;
   padding: 0.6rem 0;
+  animation: marquee-scroll 18s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--marquee-gap)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-marquee span {
+    animation: none;
+  }
 }
 
 .dates-section,
@@ -546,8 +581,9 @@ h1 {
 }
 
 .date-card-main {
-  display: flex;
-  flex-direction: column;
+  container-type: inline-size;
+  display: grid;
+  grid-template-rows: auto auto auto;
   gap: 1rem;
   padding: 1.1rem;
 }
@@ -557,11 +593,31 @@ h1 {
 }
 
 .date-card h3 {
-  margin: auto 0 0;
-  overflow-wrap: anywhere;
-  white-space: normal;
-  font-size: clamp(3.2rem, 6.4vw, 6.2rem);
-  line-height: 0.72;
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  margin: 0;
+}
+
+.city-square-text {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.city-square-text text {
+  fill: currentColor;
+  font-family: Copperplate, "Copperplate Gothic Light", "Copperplate Gothic Bold", fantasy;
+  font-size: 31px;
+  font-weight: 700;
+  letter-spacing: 0;
+  dominant-baseline: middle;
+}
+
+.city-square-text text:only-child {
+  font-size: 43px;
 }
 
 .date-card p {
@@ -875,6 +931,14 @@ h1 {
     padding: 2rem 1rem 3rem;
   }
 
+  .venue-line {
+    width: fit-content;
+    max-width: 100%;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.45rem 0.6rem;
+  }
+
   .hero-copy,
   .hero-photo,
   .hero-bill {
@@ -910,8 +974,8 @@ h1 {
   }
 
   .details-mascot img {
-    width: 4.5rem;
-    opacity: 0.4;
+    width: 5.6rem;
+    opacity: 1;
   }
 
   .details-copy {
@@ -921,7 +985,11 @@ h1 {
   }
 
   .details-copy p {
+    background: var(--ink);
+    color: var(--paper);
+    border-bottom: 0;
     order: 1;
+    padding: 0.95rem;
   }
 
   h1 {

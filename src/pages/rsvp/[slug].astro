@@ -19,7 +19,7 @@ if (!stop) {
 }
 ---
 
-<BaseLayout title={`RSVP ${stop.city} | Hideki & Jimmi Engagement Tour '26`}>
+<BaseLayout title={`RSVP ${stop.city} | Hideki & Jimmi Engagement Tour 26`}>
   <SiteHeader />
   <main>
     <section class="rsvp-shell poster-field" aria-labelledby="rsvp-title">
@@ -66,15 +66,12 @@ if (!stop) {
           <span data-lang="en">Phone</span>
           <input name="phone" type="tel" autocomplete="tel" required />
         </label>
-        <label>
-          <span data-lang="es">Invitados</span>
-          <span data-lang="en">Guests</span>
-          <select name="guests" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
+        <label class="choice">
+          <input type="checkbox" name="plus_one" value="yes" />
+          <span>
+            <span data-lang="es">Traigo +1</span>
+            <span data-lang="en">Bringing a +1</span>
+          </span>
         </label>
         <fieldset>
           <legend>

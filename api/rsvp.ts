@@ -77,7 +77,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const eventDate = getField(req.body, "event_date");
   const name = getField(req.body, "name");
   const phone = getField(req.body, "phone");
-  const guests = Number.parseInt(getField(req.body, "guests"), 10);
+  const guests = getField(req.body, "plus_one") === "yes" ? 2 : 1;
   const attending = getField(req.body, "attending");
   const overnightTravelAnswer = getField(req.body, "overnight_travel");
   const overnightTravel = overnightTravelAnswer === "yes";
@@ -97,8 +97,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
-  if (!name || !phone || !Number.isInteger(guests) || guests < 1 || guests > 4) {
-    sendError(res, "Please complete your name, phone, and guest count.");
+  if (!name || !phone) {
+    sendError(res, "Please complete your name and phone.");
     return;
   }
 
@@ -142,7 +142,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         ${guests},
         ${attending === "yes"},
         ${overnightTravel},
-        ${note || null},
+        ${note},
         ${userAgent}
       )
     `;

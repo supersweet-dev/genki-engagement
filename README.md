@@ -1,4 +1,4 @@
-# Hideki & Jimmi Engagement Tour '26
+# Hideki & Jimmi Engagement Tour 26
 
 Static Astro site for the engagement party tour.
 
@@ -36,7 +36,9 @@ vercel deploy
 
 Vercel runs `npm run deploy-build`, which applies any pending files in `sql/migrations/` before building the Astro site.
 
-The form stores event slug, event city, event date, name, phone, guest count, attendance, the Monterrey overnight travel answer, note, and submit time.
+The form stores event slug, event city, event date, name, phone, guest count derived from the +1 checkbox, attendance, the Monterrey overnight travel answer, note, and submit time.
+
+The RSVP admin digest lives at `/admin` and requires `ADMIN_SECRET`.
 
 ## Assets
 

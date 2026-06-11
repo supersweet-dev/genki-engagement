@@ -7,7 +7,7 @@ type Props = {
 };
 
 const {
-  title = "Hideki & Jimmi Engagement Tour '26",
+  title = "Hideki & Jimmi Engagement Tour 26",
   description = "Engagement party tour dates, details, and RSVP pages."
 } = Astro.props;
 ---
@@ -18,10 +18,10 @@ const {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#94F345" />
+    <meta name="theme-color" content="#35E0EC" />
     <title>{title}</title>
   </head>
-  <body data-lang="es" data-theme="green">
+  <body data-lang="es" data-theme="cyan">
     <slot />
     <script>
       const root = document.documentElement;
@@ -51,7 +51,7 @@ const {
       }
 
       setLang(storedLang ?? "es");
-      setTheme(storedTheme ?? "green");
+      setTheme(storedTheme ?? "cyan");
 
       langButtons.forEach((button) => {
         button.addEventListener("click", () => setLang(button.dataset.langToggle));
