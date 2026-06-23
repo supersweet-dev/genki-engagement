@@ -4,12 +4,24 @@ import "../styles/global.css";
 type Props = {
   title?: string;
   description?: string;
+  defaultTheme?: "cyan" | "green" | "pink" | "orange" | "museum";
+  forceDefaultTheme?: boolean;
 };
 
 const {
   title = "Hideki & Jimmi Engagement Tour 26",
-  description = "Engagement party tour dates, details, and RSVP pages."
+  description = "Engagement party tour dates, details, and RSVP pages.",
+  defaultTheme = "cyan",
+  forceDefaultTheme = false
 } = Astro.props;
+
+const themeColors = {
+  cyan: "#35E0EC",
+  green: "#94F345",
+  pink: "#F64BA2",
+  orange: "#FF6F35",
+  museum: "#D56A3C"
+};
 ---
 
 <!doctype html>
@@ -18,10 +30,10 @@ const {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#35E0EC" />
+    <meta name="theme-color" content={themeColors[defaultTheme]} />
     <title>{title}</title>
   </head>
-  <body data-lang="es" data-theme="cyan">
+  <body data-lang="es" data-theme={defaultTheme} data-default-theme={defaultTheme} data-force-default-theme={String(forceDefaultTheme)}>
     <slot />
     <script>
       const root = document.documentElement;
@@ -30,6 +42,9 @@ const {
       const colorButtons = document.querySelectorAll<HTMLButtonElement>("[data-color-toggle]");
       const storedLang = localStorage.getItem("genki-lang");
       const storedTheme = localStorage.getItem("genki-theme");
+      const defaultTheme = body.dataset.defaultTheme ?? "cyan";
+      const forceDefaultTheme = body.dataset.forceDefaultTheme === "true";
+      const sharedThemes = new Set(["cyan", "green", "pink", "orange"]);
 
       function setLang(lang: string | null | undefined) {
         const nextLang = lang === "en" ? "en" : "es";
@@ -41,24 +56,41 @@ const {
         });
       }
 
-      function setTheme(theme: string | null | undefined) {
-        const nextTheme = theme === "cyan" ? "cyan" : theme === "pink" ? "pink" : theme === "orange" ? "orange" : "green";
+      function normalizeTheme(theme: string | null | undefined, allowPageTheme = false) {
+        if (theme === "museum") {
+          return allowPageTheme ? "museum" : defaultTheme;
+        }
+
+        return theme === "cyan" || theme === "pink" || theme === "orange" || theme === "green" ? theme : defaultTheme;
+      }
+
+      function setTheme(theme: string | null | undefined, options: { persist?: boolean; allowPageTheme?: boolean } = {}) {
+        const { persist = true, allowPageTheme = false } = options;
+        const nextTheme =
+          normalizeTheme(theme, allowPageTheme);
         body.dataset.theme = nextTheme;
-        localStorage.setItem("genki-theme", nextTheme);
+
+        if (persist && sharedThemes.has(nextTheme)) {
+          localStorage.setItem("genki-theme", nextTheme);
+        }
+
         colorButtons.forEach((button) => {
           button.setAttribute("aria-pressed", String(button.dataset.colorToggle === nextTheme));
         });
       }
 
       setLang(storedLang ?? "es");
-      setTheme(storedTheme ?? "cyan");
+      setTheme(forceDefaultTheme ? defaultTheme : storedTheme ?? defaultTheme, {
+        allowPageTheme: forceDefaultTheme,
+        persist: !forceDefaultTheme
+      });
 
       langButtons.forEach((button) => {
         button.addEventListener("click", () => setLang(button.dataset.langToggle));
       });
 
       colorButtons.forEach((button) => {
-        button.addEventListener("click", () => setTheme(button.dataset.colorToggle));
+        button.addEventListener("click", () => setTheme(button.dataset.colorToggle, { persist: !forceDefaultTheme }));
       });
     </script>
   </body>

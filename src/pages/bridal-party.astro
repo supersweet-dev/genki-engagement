@@ -1,0 +1,174 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PapelPicado from "../components/PapelPicado.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import TourMarquee from "../components/TourMarquee.astro";
+
+const honorCrew = [
+  {
+    name: "Nozomi",
+    roleEs: "Dama de Honor",
+    roleEn: "Maid of Honor"
+  },
+  {
+    name: "Max",
+    roleEs: "Padrino de Honor",
+    roleEn: "Best Man"
+  }
+];
+
+const bridesmaids = ["Adriana", "Jael", "Karla", "Mylen", "Johanna", "Sophie"];
+const groomsmen = ["Alonso", "Arturo", "Caro", "Chema", "Jerry"];
+
+const venuePhotos = [
+  {
+    src: "/assets/entrance.jpeg",
+    labelEs: "Frente / entrada",
+    labelEn: "Front / entrance"
+  },
+  {
+    src: "/assets/lawn.jpeg",
+    labelEs: "El espacio de la boda",
+    labelEn: "The wedding space"
+  },
+  {
+    src: "/assets/nature.jpeg",
+    labelEs: "Vista del jardin",
+    labelEn: "View of the lawn"
+  },
+  {
+    src: "/assets/dancefloor.jpeg",
+    labelEs: "Pista",
+    labelEn: "Dancefloor"
+  }
+];
+---
+
+<BaseLayout
+  title="Bridal Party | Hideki & Jimmi"
+  description="Official wedding date, venue, and bridal party for Hideki and Jimmi."
+  defaultTheme="museum"
+  forceDefaultTheme
+>
+  <SiteHeader />
+  <main class="bridal-page">
+    <section class="bridal-hero poster-field" aria-labelledby="bridal-title">
+      <img class="poster-stamp bridal-stamp" src="/assets/sheepcat.png" alt="" aria-hidden="true" />
+      <a class="back-link" href="/">
+        <span data-lang="es">Volver al tour</span>
+        <span data-lang="en">Back to tour</span>
+      </a>
+      <div class="section-label">
+        <span data-lang="es">Corte oficial</span>
+        <span data-lang="en">Official crew</span>
+      </div>
+      <h1 class="bridal-title" id="bridal-title">
+        <span data-lang="es">Bridal Party</span>
+        <span data-lang="en">Bridal Party</span>
+      </h1>
+      <div class="bridal-announcement">
+        <p class="bridal-lede">
+          <span data-lang="es">Ya tenemos fecha oficial, lugar oficial, y la gente oficial que queremos cerca.</span>
+          <span data-lang="en">We have an official date, an official place, and the official people we want close.</span>
+        </p>
+        <dl class="wedding-facts">
+          <div>
+            <dt>
+              <span data-lang="es">Fecha</span>
+              <span data-lang="en">Date</span>
+            </dt>
+            <dd>
+              <time datetime="2027-10-02">
+                <span data-lang="es">2 de octubre, 2027</span>
+                <span data-lang="en">October 2, 2027</span>
+              </time>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <span data-lang="es">Lugar</span>
+              <span data-lang="en">Location</span>
+            </dt>
+            <dd>Museo Valle del Pilón, Montemorelos, Nuevo León, México</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <PapelPicado />
+
+    <TourMarquee />
+
+    <section class="bridal-section" aria-labelledby="party-title">
+      <div class="section-label">
+        <span data-lang="es">Quien va de pie con nosotros</span>
+        <span data-lang="en">Standing with us</span>
+      </div>
+      <h2 id="party-title">
+        <span data-lang="es">La alineacion</span>
+        <span data-lang="en">The lineup</span>
+      </h2>
+      <div class="honor-grid">
+        {honorCrew.map((person) => (
+          <article class="party-card honor-card">
+            <span class="party-role">
+              <span data-lang="es">{person.roleEs}</span>
+              <span data-lang="en">{person.roleEn}</span>
+            </span>
+            <h3>{person.name}</h3>
+          </article>
+        ))}
+      </div>
+      <div class="party-columns">
+        <section class="party-column" aria-labelledby="bridesmaids-title">
+          <h3 id="bridesmaids-title">
+            <span data-lang="es">Damas</span>
+            <span data-lang="en">Bridesmaids</span>
+          </h3>
+          <div class="party-list">
+            {bridesmaids.map((name) => (
+              <article class="party-card">
+                <h4>{name}</h4>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section class="party-column" aria-labelledby="groomsmen-title">
+          <h3 id="groomsmen-title">
+            <span data-lang="es">Groomsmen</span>
+            <span data-lang="en">Groomsmen</span>
+          </h3>
+          <div class="party-list groomsmen-list">
+            {groomsmen.map((name) => (
+              <article class={`party-card ${name === "Jerry" ? "party-card-wide" : ""}`}>
+                <h4>{name}</h4>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="venue-section" aria-labelledby="venue-title">
+      <div class="venue-copy">
+        <div class="section-label">
+          <span data-lang="es">Lugar oficial</span>
+          <span data-lang="en">Official venue</span>
+        </div>
+        <h2 id="venue-title">Museo Valle del Pilón</h2>
+        <img class="venue-lamp" src="/assets/lamp.png" alt="" aria-hidden="true" />
+      </div>
+      <div class="venue-photo-grid">
+        {venuePhotos.map((photo) => (
+          <figure class="venue-photo">
+            <img src={photo.src} alt="" />
+            <figcaption>
+              <span data-lang="es">{photo.labelEs}</span>
+              <span data-lang="en">{photo.labelEn}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

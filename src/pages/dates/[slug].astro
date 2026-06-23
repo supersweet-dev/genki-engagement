@@ -109,9 +109,13 @@ const detailItems = stop.detailsEs;
 
     <TourMarquee />
 
-    <section class="details-copy" aria-label="Stop details">
-      <div class="details-photo-frame">
-        <img class="details-photo" src={stop.detailPhoto} alt="Hideki and Jimmi" />
+    <section class={`details-copy ${stop.slug === "monterrey" ? "quinta-details" : ""}`} aria-label="Stop details">
+      <div class={`details-photo-frame ${stop.slug === "monterrey" ? "quinta-photo-frame" : ""}`}>
+        <img
+          class="details-photo"
+          src={stop.detailPhoto}
+          alt={stop.slug === "monterrey" ? "Quinta La Unión" : "Hideki and Jimmi"}
+        />
         <div class="details-mascot" aria-hidden="true">
           <img src="/assets/sheepcat.png" alt="" />
         </div>

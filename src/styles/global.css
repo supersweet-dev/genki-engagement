@@ -47,6 +47,14 @@ body[data-theme="orange"] {
   --paper: #ff6f35;
 }
 
+body[data-theme="museum"] {
+  --paper: #d56a3c;
+  --ink: #ffeee3;
+  --museum-brown: #80573c;
+  --museum-cream: #ffeee3;
+  --museum-green: #658254;
+}
+
 body [data-lang] {
   display: none;
 }
@@ -731,6 +739,297 @@ h1 {
   padding-right: clamp(15rem, 34vw, 30rem);
 }
 
+.bridal-page {
+  --bridal-paper: #d56a3c;
+  --bridal-brown: #80573c;
+  --bridal-cream: #ffeee3;
+  --bridal-green: #658254;
+}
+
+.bridal-page .poster-field::before {
+  background:
+    repeating-linear-gradient(112deg, transparent 0 24px, rgba(128, 87, 60, 0.48) 24px 26px),
+    repeating-linear-gradient(0deg, transparent 0 54px, rgba(255, 238, 227, 0.18) 54px 56px);
+}
+
+.bridal-page .poster-field::after {
+  border-color: var(--bridal-cream);
+  box-shadow: 0 0 0 0.45rem var(--bridal-paper), 0 0 0 0.7rem var(--bridal-brown);
+}
+
+.bridal-page .section-label,
+.bridal-page .back-link,
+.bridal-page .tour-marquee,
+.bridal-page .party-column > h3,
+.bridal-page .venue-photo figcaption {
+  background: var(--bridal-brown);
+  color: var(--bridal-cream);
+}
+
+.bridal-page .back-link {
+  width: fit-content;
+  padding: 0.35rem 0.55rem;
+  border-bottom: 0;
+}
+
+.bridal-page .papel-picado {
+  background: var(--bridal-paper);
+}
+
+.bridal-page .papel-picado img,
+.bridal-page .bridal-stamp {
+  filter: sepia(1) saturate(1.8) hue-rotate(32deg) contrast(1.15);
+  mix-blend-mode: multiply;
+}
+
+.bridal-hero {
+  min-height: calc(100vh - 52px);
+  padding: clamp(2rem, 7vw, 6rem);
+}
+
+.bridal-stamp {
+  position: absolute;
+  right: clamp(1rem, 5vw, 4rem);
+  bottom: clamp(1rem, 5vw, 4rem);
+  z-index: -1;
+  width: min(27vw, 18rem);
+  transform: rotate(10deg);
+}
+
+.bridal-title {
+  max-width: 8ch;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(3.4rem, 13vw, 11rem);
+  color: var(--bridal-cream);
+  text-shadow: 0.045em 0.045em 0 var(--bridal-brown);
+}
+
+.bridal-lede {
+  max-width: 18ch;
+  margin-bottom: 0;
+  padding: 0.9rem;
+  background: var(--bridal-green);
+  color: var(--bridal-cream);
+  font-size: clamp(1.45rem, 4vw, 3rem);
+  line-height: 0.92;
+}
+
+.bridal-announcement {
+  display: grid;
+  max-width: 78rem;
+  grid-template-columns: minmax(14rem, 0.55fr) minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: stretch;
+}
+
+.wedding-facts {
+  display: grid;
+  max-width: 58rem;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  margin: 0;
+  border: var(--hairline);
+  border-color: var(--bridal-cream);
+  background: var(--bridal-cream);
+  color: var(--bridal-brown);
+}
+
+.wedding-facts div {
+  min-width: 0;
+  padding: 1rem;
+  border-right: var(--hairline);
+  border-color: var(--bridal-brown);
+}
+
+.wedding-facts div:last-child {
+  border-right: 0;
+}
+
+.wedding-facts dt {
+  margin-bottom: 0.7rem;
+  font-size: 0.82rem;
+}
+
+.wedding-facts dd {
+  margin: 0;
+  font-size: clamp(1.25rem, 3vw, 2.3rem);
+  line-height: 0.9;
+  overflow-wrap: anywhere;
+}
+
+.bridal-section,
+.venue-section {
+  padding: clamp(2rem, 7vw, 5rem) clamp(1rem, 5vw, 4rem);
+}
+
+.bridal-section h2,
+.venue-section h2 {
+  max-width: 12ch;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+  color: var(--bridal-cream);
+  font-size: clamp(2.7rem, 8vw, 7rem);
+  line-height: 0.82;
+  text-shadow: 0.045em 0.045em 0 var(--bridal-brown);
+}
+
+.honor-grid,
+.party-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+.honor-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 1rem;
+}
+
+.party-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.party-column {
+  min-width: 0;
+  border: var(--hairline);
+  border-color: var(--bridal-cream);
+  background: var(--bridal-cream);
+  color: var(--bridal-brown);
+}
+
+.party-column > h3 {
+  margin: 0;
+  padding: 1rem;
+  border-bottom: var(--hairline);
+  border-color: var(--bridal-cream);
+  font-size: clamp(1.4rem, 4vw, 3rem);
+  line-height: 0.9;
+}
+
+.party-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.party-card {
+  min-width: 0;
+  padding: 1rem;
+  border: var(--hairline);
+  border-color: var(--bridal-brown);
+  background: var(--bridal-cream);
+  color: var(--bridal-brown);
+}
+
+.party-list .party-card {
+  border-top: 0;
+  border-right: 0;
+  border-bottom: var(--hairline);
+  border-left: 0;
+}
+
+.party-list .party-card:nth-child(odd) {
+  border-right: 2px solid var(--bridal-brown);
+}
+
+.party-list .party-card:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.groomsmen-list .party-card-wide {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.groomsmen-list .party-card:nth-child(4) {
+  border-right: 0;
+}
+
+.groomsmen-list .party-card:nth-last-child(2) {
+  border-bottom: var(--hairline);
+}
+
+.honor-card {
+  display: grid;
+  min-height: clamp(11rem, 22vw, 18rem);
+  align-content: space-between;
+  border-color: var(--bridal-cream);
+  background: var(--bridal-green);
+  color: var(--bridal-cream);
+}
+
+.party-role {
+  font-size: clamp(1.25rem, 3vw, 2.35rem);
+  line-height: 0.9;
+}
+
+.party-card h3,
+.party-card h4 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 5rem);
+  line-height: 0.82;
+  overflow-wrap: anywhere;
+}
+
+.party-card h4 {
+  font-size: clamp(1.55rem, 4vw, 3.3rem);
+}
+
+.venue-section {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1rem, 4vw, 3rem);
+  align-items: start;
+  border-top: var(--hairline);
+  border-color: var(--bridal-cream);
+}
+
+.venue-copy {
+  position: sticky;
+  top: 5rem;
+}
+
+.venue-lamp {
+  display: block;
+  width: min(100%, 18rem);
+  margin-top: clamp(0.75rem, 3vw, 1.5rem);
+  filter: sepia(1) saturate(1.8) hue-rotate(32deg) contrast(1.15);
+  mix-blend-mode: multiply;
+  transform: rotate(-4deg);
+}
+
+.venue-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.venue-photo {
+  margin: 0;
+  border: var(--hairline);
+  border-color: var(--bridal-cream);
+  background: var(--bridal-cream);
+  transform: rotate(-1deg);
+}
+
+.venue-photo:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.venue-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: contrast(1.02) saturate(0.98);
+  mix-blend-mode: normal;
+}
+
+.venue-photo figcaption {
+  padding: 0.65rem 0.8rem;
+  border-top: var(--hairline);
+  border-color: var(--bridal-cream);
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
+  line-height: 0.95;
+}
+
 .details-photo-frame {
   position: absolute;
   top: clamp(5.5rem, 10vw, 8rem);
@@ -757,6 +1056,27 @@ h1 {
   object-fit: cover;
   filter: grayscale(1) contrast(1.65);
   mix-blend-mode: multiply;
+}
+
+.quinta-photo-frame {
+  width: clamp(15rem, 35vw, 29rem);
+}
+
+.quinta-photo-frame .details-photo {
+  aspect-ratio: 4 / 3;
+  filter: contrast(1.08) saturate(0.92);
+  mix-blend-mode: normal;
+}
+
+@media (min-width: 901px) {
+  .quinta-details {
+    max-width: 92rem;
+    padding-right: clamp(27rem, 48vw, 43rem);
+  }
+
+  .quinta-photo-frame {
+    width: clamp(24rem, 43vw, 37rem);
+  }
 }
 
 .details-mascot {
@@ -892,6 +1212,17 @@ h1 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .bridal-announcement,
+  .wedding-facts,
+  .party-columns,
+  .venue-section {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-copy {
+    position: static;
+  }
+
   .stop-facts {
     grid-template-columns: 1fr;
   }
@@ -934,9 +1265,37 @@ h1 {
 
   .hero,
   .detail-hero,
+  .bridal-hero,
   .rsvp-shell {
     min-height: auto;
     padding: 2rem 1rem 3rem;
+  }
+
+  .bridal-stamp {
+    right: -0.5rem;
+    bottom: 1rem;
+    width: 9rem;
+    opacity: 0.35;
+  }
+
+  .bridal-title {
+    font-size: clamp(3rem, 17vw, 5.8rem);
+  }
+
+  .bridal-lede {
+    max-width: none;
+    background: var(--bridal-green);
+    color: var(--bridal-cream);
+    padding: 0.65rem;
+  }
+
+  .wedding-facts div {
+    border-right: 0;
+    border-bottom: var(--hairline);
+  }
+
+  .wedding-facts div:last-child {
+    border-bottom: 0;
   }
 
   .venue-line {
@@ -1029,6 +1388,26 @@ h1 {
 
   .date-card {
     min-height: 18rem;
+  }
+
+  .honor-grid,
+  .party-list,
+  .venue-photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .party-list .party-card,
+  .party-list .party-card:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .party-list .party-card:nth-last-child(2) {
+    border-bottom: var(--hairline);
+  }
+
+  .venue-photo,
+  .venue-photo:nth-child(even) {
+    transform: none;
   }
 
   .rsvp-form fieldset {

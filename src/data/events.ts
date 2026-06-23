@@ -94,24 +94,27 @@ export const tourStops: TourStop[] = [
     date: "2026-08-15",
     dateLabel: "Aug15",
     city: "MONTERREY",
-    venue: "RSVP for Quinta",
-    venueEs: "RSVP para Quinta",
-    address: "Nuevo Leon, TBD",
-    addressEs: "Nuevo Leon, por confirmar",
-    time: "Details soon",
-    timeEs: "Detalles pronto",
+    venue: "Quinta La Unión",
+    venueEs: "Quinta La Unión",
+    address: "Montemorelos, Nuevo León",
+    addressEs: "Montemorelos, Nuevo León",
+    addressHref: "https://maps.app.goo.gl/psvtZNBnCyFoCAR39?g_st=ic",
+    time: "Aug 15, 2 PM - Aug 16, 10 AM",
+    timeEs: "15 ago, 2 PM - 16 ago, 10 AM",
     rsvpDeadline: "RSVP by July 3",
     rsvpDeadlineEs: "RSVP antes del 3 de julio",
-    detailPhoto: "/assets/hj-photo3.png",
+    detailPhoto: "/assets/quinta.jpg",
     details: [
-      "RSVP by July 3 so we can lock the guest count and choose the perfect quinta.",
-      "Forecast: pool splashes, BBQ smoke, too much sun, and singing like the quinta came with a spotlight.",
-      "Place is TBD in Nuevo Leon, depending on who is in for the overnight adventure."
+      "Reservation confirmed: Quinta La Unión in Montemorelos.",
+      "Arrive Saturday at 2 PM and stay through Sunday checkout at 10 AM.",
+      "Pool, palapa, grill, Bluetooth speaker, Wi-Fi, parking, and plenty of green space.",
+      "Three air-conditioned bedrooms sleep up to 17, with extra camping space. Pet-friendly. No glass allowed."
     ],
     detailsEs: [
-      { es: "RSVP antes del 3 de julio para cerrar el conteo y escoger la quinta perfecta.", en: "RSVP by July 3 so we can lock the guest count and choose the perfect quinta." },
-      { es: "Pronostico: alberca, humo de BBQ, demasiado sol, y canto como si la quinta viniera con reflector.", en: "Forecast: pool splashes, BBQ smoke, too much sun, and singing like the quinta came with a spotlight." },
-      { es: "Lugar por confirmar en Nuevo Leon, dependiendo de quien se apunte a la aventura con noche incluida.", en: "Place is TBD in Nuevo Leon, depending on who is in for the overnight adventure." }
+      { es: "Reservación confirmada: Quinta La Unión en Montemorelos.", en: "Reservation confirmed: Quinta La Unión in Montemorelos." },
+      { es: "Lleguen el sábado a las 2 PM y quédense hasta el checkout del domingo a las 10 AM.", en: "Arrive Saturday at 2 PM and stay through Sunday checkout at 10 AM." },
+      { es: "Alberca, palapa, asador, bocina Bluetooth, Wi-Fi, estacionamiento y mucho espacio verde.", en: "Pool, palapa, grill, Bluetooth speaker, Wi-Fi, parking, and plenty of green space." },
+      { es: "Tres recámaras con minisplit para hasta 17 personas, más espacio para camping. Pet-friendly. No se permite vidrio.", en: "Three air-conditioned bedrooms sleep up to 17, with extra camping space. Pet-friendly. No glass allowed." }
     ]
   },
   {
