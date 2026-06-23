@@ -34,22 +34,38 @@ const detailItems = stop.detailsEs;
         <span data-lang="es">{stop.venueEs}</span>
         <span data-lang="en">{stop.venue}</span>
       </p>
-      <dl class="stop-facts">
-        <div>
+      <dl class={`stop-facts ${stop.slug === "monterrey" ? "monterrey-facts" : ""}`}>
+        <div class="date-fact">
           <dt>
             <span data-lang="es">Fecha</span>
             <span data-lang="en">Date</span>
           </dt>
           <dd><time datetime={stop.date}>{stop.dateLabel}, 2026</time></dd>
         </div>
-        <div>
+        {
+          stop.rsvpDeadline && (
+            <div class="deadline-fact">
+              <dt>RSVP</dt>
+              <dd>
+                <span data-lang="es">{stop.rsvpDeadlineEs}</span>
+                <span data-lang="en">{stop.rsvpDeadline}</span>
+              </dd>
+            </div>
+          )
+        }
+        <div class="place-fact">
           <dt>
             <span data-lang="es">Lugar</span>
             <span data-lang="en">Place</span>
           </dt>
           <dd>
             {
-              stop.addressHref ? (
+              stop.slug === "monterrey" ? (
+                <>
+                  <span data-lang="es">{stop.venueEs}</span>
+                  <span data-lang="en">{stop.venue}</span>
+                </>
+              ) : stop.addressHref ? (
                 <a href={stop.addressHref}>
                   <span data-lang="es">{stop.addressEs}</span>
                   <span data-lang="en">{stop.address}</span>
@@ -63,7 +79,23 @@ const detailItems = stop.detailsEs;
             }
           </dd>
         </div>
-        <div>
+        {
+          stop.slug === "monterrey" && stop.addressHref && (
+            <div class="address-fact">
+              <dt>
+                <span data-lang="es">Dirección</span>
+                <span data-lang="en">Address</span>
+              </dt>
+              <dd>
+                <a href={stop.addressHref}>
+                  <span data-lang="es">{stop.addressEs}</span>
+                  <span data-lang="en">{stop.address}</span>
+                </a>
+              </dd>
+            </div>
+          )
+        }
+        <div class="time-fact">
           <dt>
             <span data-lang="es">Hora</span>
             <span data-lang="en">Time</span>
@@ -73,17 +105,6 @@ const detailItems = stop.detailsEs;
             <span data-lang="en">{stop.time}</span>
           </dd>
         </div>
-        {
-          stop.rsvpDeadline && (
-            <div class="deadline-fact">
-              <dt>RSVP</dt>
-              <dd>
-                <span data-lang="es">{stop.rsvpDeadlineEs}</span>
-                <span data-lang="en">{stop.rsvpDeadline}</span>
-              </dd>
-            </div>
-          )
-        }
       </dl>
       {
         stop.acceptsRsvp !== false ? (

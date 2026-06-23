@@ -734,6 +734,45 @@ h1 {
   color: var(--paper);
 }
 
+@media (min-width: 901px) {
+  .monterrey-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .monterrey-facts .date-fact,
+  .monterrey-facts .place-fact,
+  .monterrey-facts .address-fact {
+    border-bottom: var(--hairline);
+  }
+
+  .monterrey-facts .date-fact {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .monterrey-facts .deadline-fact {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .monterrey-facts .place-fact {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .monterrey-facts .address-fact {
+    grid-column: 3;
+    grid-row: 1;
+    border-right: 0;
+  }
+
+  .monterrey-facts .time-fact {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    border-right: 0;
+  }
+}
+
 .details-copy {
   max-width: 78rem;
   padding-right: clamp(15rem, 34vw, 30rem);
