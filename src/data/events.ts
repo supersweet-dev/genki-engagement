@@ -132,7 +132,9 @@ export const tourStops: TourStop[] = [
     acceptsRsvp: false,
     detailPhoto: "/assets/hj-photo4.png",
     details: [
-      "Closing out with a digital encore.",
+      "Likely games: Don't Starve Together, Among Us, R.E.P.O., or whatever fits the group.",
+      "All three games are paid but may be on sale; Don't Starve Together includes two copies.",
+      "Hopefully a mod lets more of us play R.E.P.O. together.",
       "We will also use the server for wedding updates, tiny announcements, and any side quests that become official.",
       "Yes, Genki is our ship name and it is cute.",
       {
@@ -142,7 +144,9 @@ export const tourStops: TourStop[] = [
       }
     ],
     detailsEs: [
-      { es: "Cerramos con un encore digital.", en: "Closing out with a digital encore." },
+      { es: "Juegos probables: Don't Starve Together, Among Us, R.E.P.O., o lo que funcione para el grupo.", en: "Likely games: Don't Starve Together, Among Us, R.E.P.O., or whatever fits the group." },
+      { es: "Los tres juegos son de paga, pero pueden estar en oferta; Don't Starve Together incluye dos copias.", en: "All three games are paid but may be on sale; Don't Starve Together includes two copies." },
+      { es: "Ojalá un mod nos deje jugar R.E.P.O. entre más personas.", en: "Hopefully a mod lets more of us play R.E.P.O. together." },
       { es: "Tambien vamos a usar el servidor para updates de la boda, anuncios chiquitos y side quests que se vuelvan oficiales.", en: "We will also use the server for wedding updates, tiny announcements, and any side quests that become official." },
       { es: "Si, Genki es nuestro ship name y esta cute.", en: "Yes, Genki is our ship name and it is cute." },
       {
