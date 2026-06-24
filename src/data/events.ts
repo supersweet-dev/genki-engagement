@@ -53,7 +53,7 @@ export const tourStops: TourStop[] = [
     time: "Details soon",
     timeEs: "Detalles pronto",
     showNoteField: false,
-    detailPhoto: "/assets/hj-photo.png",
+    detailPhoto: "/assets/hj-photo3.png",
     details: [
       "Karaoke stop on the engagement tour.",
       "Prepare your best songs and your loudest congratulations.",
@@ -134,28 +134,16 @@ export const tourStops: TourStop[] = [
     details: [
       "Likely games: Don't Starve Together, Among Us, R.E.P.O., or whatever fits the group.",
       "All three games are paid but may be on sale; Don't Starve Together includes two copies.",
-      "Hopefully a mod lets more of us play R.E.P.O. together.",
-      "We will also use the server for wedding updates, tiny announcements, and any side quests that become official.",
-      "Yes, Genki is our ship name and it is cute.",
-      {
-        text: "Meet us in the ",
-        href: "https://discord.gg/QSc7EDSyN2",
-        label: "wedding server"
-      }
+      "Grab some beer or wine if you want!",
+      "We will also use the server for wedding updates and official side quests.",
+      "Yes, Genki is our ship name and it is cute."
     ],
     detailsEs: [
       { es: "Juegos probables: Don't Starve Together, Among Us, R.E.P.O., o lo que funcione para el grupo.", en: "Likely games: Don't Starve Together, Among Us, R.E.P.O., or whatever fits the group." },
       { es: "Los tres juegos son de paga, pero pueden estar en oferta; Don't Starve Together incluye dos copias.", en: "All three games are paid but may be on sale; Don't Starve Together includes two copies." },
-      { es: "Ojalá un mod nos deje jugar R.E.P.O. entre más personas.", en: "Hopefully a mod lets more of us play R.E.P.O. together." },
-      { es: "Tambien vamos a usar el servidor para updates de la boda, anuncios chiquitos y side quests que se vuelvan oficiales.", en: "We will also use the server for wedding updates, tiny announcements, and any side quests that become official." },
-      { es: "Si, Genki es nuestro ship name y esta cute.", en: "Yes, Genki is our ship name and it is cute." },
-      {
-        esText: "Caele al ",
-        enText: "Meet us in the ",
-        href: "https://discord.gg/QSc7EDSyN2",
-        esLabel: "servidor de la boda",
-        enLabel: "wedding server"
-      }
+      { es: "¡Compren cerveza o vino si quieren!", en: "Grab some beer or wine if you want!" },
+      { es: "También usaremos el servidor para updates de la boda y side quests oficiales.", en: "We will also use the server for wedding updates and official side quests." },
+      { es: "Si, Genki es nuestro ship name y esta cute.", en: "Yes, Genki is our ship name and it is cute." }
     ]
   }
 ];
